@@ -1,0 +1,42 @@
+{
+  "name": "trainerlog",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [
+    "app",
+    "dashboard",
+    "react",
+    "reactjs",
+    "fitness"
+  ],
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "main": "src/index.tsx",
+  "dependencies": {
+    "@types/react": "16.8.23",
+    "@types/react-dom": "16.8.5",
+    "@types/react-router-dom": "4.3.4",
+    "@types/styled-components": "4.1.18",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-router-dom": "5.0.1",
+    "react-scripts": "3.0.1",
+    "reaviz": "2.4.5",
+    "styled-components": "4.3.2"
+  },
+  "devDependencies": {
+    "@types/react": "16.8.8",
+    "@types/react-dom": "16.8.2",
+    "typescript": "3.3.3"
+  }
+}
