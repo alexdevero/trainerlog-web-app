@@ -24,6 +24,7 @@
   "main": "src/index.tsx",
   "dependencies": {
     "react": "16.8.6",
+    "react-calendar": "^2.19.0",
     "react-dom": "16.8.6",
     "react-router-dom": "5.0.1",
     "reaviz": "2.4.5",
