@@ -12,7 +12,7 @@
   "plugins": [
     "@typescript-eslint",
     "import",
-    "node",
+    // "node",
     "promise",
     "react"
   ],
@@ -191,8 +191,8 @@
     "import/no-webpack-loader-syntax": "error",
 
     // Node
-    "node/no-deprecated-api": "error",
-    "node/process-exit-as-throw": "error",
+    // "node/no-deprecated-api": "error",
+    // "node/process-exit-as-throw": "error",
     // Promise
     "promise/param-names": "error",
 
