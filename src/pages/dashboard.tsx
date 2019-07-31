@@ -4,10 +4,10 @@ import { BarChart, LineChart } from 'reaviz'
 
 // import 'reaviz/dist/index.css'
 
-import { View } from './../components/constants'
-import { GridCol, GridRow } from './../components/grid'
-import { HeadingH5, HeadingH6 } from './../components/typography'
-import { Checkbox } from './../components/form-elements'
+import { View } from '../components/constants'
+import { GridCol, GridRow } from '../components/grid'
+import { HeadingH5 } from '../components/typography'
+import { DashboardSettings } from './dashboard/dashboard-settings'
 
 import { dataBodyFat } from '../data/data-body-fat'
 import { dataPrBodyWeight } from '../data/data-pr-body-weight'
@@ -32,7 +32,7 @@ const SettingsButton = styled.button`
   }
 `
 
-const Home = () => {
+const Dashboard = () => {
   const [isSettingsVisible, setSettingsVisible] = React.useState(false)
   const [isBodyFatGraphVisible, setBodyFatGraphVisible] = React.useState(true)
   const [isBodyWeightGraphVisible, setBodyWeightGraphVisible] = React.useState(true)
@@ -45,37 +45,18 @@ const Home = () => {
         <SettingsButton onClick={() => setSettingsVisible(!isSettingsVisible)}><span className="fas fa-cog" /></SettingsButton>
       </div>
 
-      {isSettingsVisible && <div>
-        <HeadingH6 style={{ margin: '0 0 12px' }}>Statistics settings</HeadingH6>
-
-        <Checkbox
-          checked={isBodyFatGraphVisible}
-          id="dashboard-settings-body-fat"
-          label="Body fat %"
-          onChange={() => setBodyFatGraphVisible(!isBodyFatGraphVisible)}
+      {isSettingsVisible && (
+        <DashboardSettings
+          isBodyFatGraphVisible={isBodyFatGraphVisible}
+          isBodyWeightGraphVisible={isBodyWeightGraphVisible}
+          isPrEquipmentGraphVisible={isPrEquipmentGraphVisible}
+          isPrWeightGraphVisible={isPrWeightGraphVisible}
+          setBodyFatGraphVisible={() => setBodyFatGraphVisible(!isBodyFatGraphVisible)}
+          setBodyWeightGraphVisible={() => setBodyWeightGraphVisible(!isBodyWeightGraphVisible)}
+          setPrEquipmentGraphVisible={() => setPrEquipmentGraphVisible(!isPrEquipmentGraphVisible)}
+          setPrWeightGraphVisible={() => setPrWeightGraphVisible(!isPrWeightGraphVisible)}
         />
-
-        <Checkbox
-          checked={isBodyWeightGraphVisible}
-          id="dashboard-settings-body-weight"
-          label="Body weight"
-          onChange={() => setBodyWeightGraphVisible(!isBodyWeightGraphVisible)}
-        />
-
-        <Checkbox
-          checked={isPrWeightGraphVisible}
-          id="dashboard-settings-body-weight"
-          label="PRs (weight)"
-          onChange={() => setPrWeightGraphVisible(!isPrWeightGraphVisible)}
-        />
-
-        <Checkbox
-          checked={isPrEquipmentGraphVisible}
-          id="dashboard-settings-body-weight"
-          label="PRs (equipment)"
-          onChange={() => setPrEquipmentGraphVisible(!isPrEquipmentGraphVisible)}
-        />
-      </div>}
+      )}
 
       <GridRow>
         {isBodyWeightGraphVisible && <GridCol md={6} xl={3}>
@@ -124,4 +105,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Dashboard
