@@ -23,10 +23,12 @@
   },
   "main": "src/index.tsx",
   "dependencies": {
+    "moment": "^2.24.0",
     "react": "16.8.6",
     "react-calendar": "^2.19.0",
     "react-dom": "16.8.6",
     "react-router-dom": "5.0.1",
+    "react-vis": "^1.11.7",
     "reaviz": "2.4.5",
     "styled-components": "4.3.2"
   },
