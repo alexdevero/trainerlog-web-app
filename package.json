@@ -29,7 +29,7 @@
     "react-dom": "16.8.6",
     "react-router-dom": "5.0.1",
     "react-vis": "^1.11.7",
-    "reaviz": "2.4.5",
+    "reaviz": "2.4.9",
     "styled-components": "4.3.2"
   },
   "devDependencies": {
@@ -43,6 +43,6 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.3",
     "react-scripts": "3.0.1",
-    "typescript": "3.3.3"
+    "typescript": "3.5.3"
   }
 }

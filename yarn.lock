@@ -8756,10 +8756,10 @@ realpath-native@^1.1.0:
   dependencies:
     util.promisify "^1.0.0"
 
-reaviz@2.4.5:
-  version "2.4.5"
-  resolved "https://registry.yarnpkg.com/reaviz/-/reaviz-2.4.5.tgz#edb9fcc55484088b8990fb5d38f19ed1a53c2751"
-  integrity sha512-eVZ6NfwDlKb0S0O10vtDepjl/Z36/ObtmCvps24jhb8dS3JKBXsr8rHhMiu2Lc2+JyQQlqpsBDxMhAay4Fg7gQ==
+reaviz@2.4.9:
+  version "2.4.9"
+  resolved "https://registry.yarnpkg.com/reaviz/-/reaviz-2.4.9.tgz#720fdf30d27d3fc71f94102e1cb1d7ecd19d39ad"
+  integrity sha512-NIyy9n1XBDfLWXUOcDd8u/qp/+Sl/gP3y03sV2fIU3luu0Dh1sybvGQoZ0xxndLFqssrKgN5zmMhDL84jx1mFw==
   dependencies:
     big-integer "^1.6.43"
     chroma-js "^2.0.3"
@@ -10095,10 +10095,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@3.3.3:
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.3.3.tgz#f1657fc7daa27e1a8930758ace9ae8da31403221"
-  integrity sha512-Y21Xqe54TBVp+VDSNbuDYdGw0BpoR/Q6wo/+35M8PAU0vipahnyduJWirxxdxjsAkS7hue53x2zp8gz7F05u0A==
+typescript@3.5.3:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.5.3.tgz#c830f657f93f1ea846819e929092f5fe5983e977"
+  integrity sha512-ACzBtm/PhXBDId6a6sDJfroT2pOWt/oOnk4/dElG5G33ZL776N3Y6/6bKZJBFpd+b05F3Ct9qDjMeJmRWtE2/g==
 
 uglify-js@3.4.x:
   version "3.4.10"
