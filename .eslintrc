@@ -168,7 +168,7 @@
       "line": { "markers": ["*package", "!", "/", ",", "="] },
       "block": { "balanced": true, "markers": ["*package", "!", ",", ":", "::", "flow-include"], "exceptions": ["*"] }
     }],
-    "sort-imports": ["warn", { "ignoreCase": true }],
+    // "sort-imports": ["warn", { "ignoreCase": true }],
     "sort-keys": "warn",
     "sort-vars": "warn",
     "strict": ["error", "global"],
