@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <View>
       <GridRow>
-        <GridCol md={6} lg={3}>
+        <GridCol md={6} xl={3}>
           <HeadingH4>Your weight</HeadingH4>
 
           <LineChart
@@ -26,7 +26,7 @@ const Home = () => {
           />
         </GridCol>
 
-        <GridCol md={6} lg={3}>
+        <GridCol md={6} xl={3}>
           <HeadingH4>Your body fat %</HeadingH4>
 
           <LineChart
@@ -35,7 +35,7 @@ const Home = () => {
             width={250}
           />
         </GridCol>
-        <GridCol md={6} lg={3}>
+        <GridCol md={6} xl={3}>
           <HeadingH4>Your PRs (equipment)</HeadingH4>
 
           <BarChart
@@ -46,7 +46,7 @@ const Home = () => {
           />
         </GridCol>
 
-        <GridCol md={6} lg={3}>
+        <GridCol md={6} xl={3}>
           <HeadingH4>Your PRs (body weight)</HeadingH4>
 
           <BarChart
