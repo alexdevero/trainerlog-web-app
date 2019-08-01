@@ -27,6 +27,7 @@
     "react": "16.8.6",
     "react-calendar": "^2.19.0",
     "react-dom": "16.8.6",
+    "react-helmet": "^5.2.1",
     "react-router-dom": "5.0.1",
     "react-vis": "^1.11.7",
     "reaviz": "2.4.9",
@@ -35,6 +36,7 @@
   "devDependencies": {
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.5",
+    "@types/react-helmet": "^5.0.8",
     "@types/react-router-dom": "4.3.4",
     "@types/styled-components": "4.1.18",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
