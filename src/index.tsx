@@ -10,6 +10,7 @@ import Dashboard from './pages/dashboard'
 import Login from './pages/login'
 import Measurements from './pages/measurements'
 import PageNotFound from './pages/404'
+import Reports from './pages/reports'
 import Settings from './pages/settings'
 import Tools from './pages/tools'
 import Wiki from './pages/wiki'
@@ -95,6 +96,7 @@ function App() {
                   <Route exact path="/exercises" component={Exercises} />
                   <Route path="/exercises/:exercise" component={Exercise} />
                   <Route path="/measurements" component={Measurements} />
+                  <Route path="/reports" component={Reports} />
                   <Route path="/tools" component={Tools} />
                   <Route path="/wiki" component={Wiki} />
                   <Route path="/settings" component={Settings} />
