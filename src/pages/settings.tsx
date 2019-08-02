@@ -13,6 +13,34 @@ const SettingsSubHeading = styled(HeadingH6)`
   margin-bottom: 12px;
 `
 
+const SettingsRow = styled(GridRow)`
+  margin-top: 16px;
+
+  @media (max-width: 575px) {
+    & > div + div {
+      margin-top: 16px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    & > div:nth-of-type(n+3) {
+      margin-top: 16px;
+    }
+  }
+
+  @media (max-width: 991px) {
+    & > div:nth-of-type(n+4) {
+      margin-top: 16px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    & > div:nth-of-type(n+5) {
+      margin-top: 16px;
+    }
+  }
+`
+
 const Settings = () => {
   {/*
     // TODO: Implement handlers interacting directly with store
@@ -20,6 +48,7 @@ const Settings = () => {
   const [firstName, setFirstName] = React.useState(SettingsStore.firstName)
   const [lastName, setLastName] = React.useState(SettingsStore.lastName)
   const [email, setEmail] = React.useState(SettingsStore.email)
+  const [date, setDate] = React.useState(SettingsStore.date)
   const [username, setUsername] = React.useState(SettingsStore.username)
   const [sex, setSex] = React.useState(SettingsStore.sex)
   const [height, setHeight] = React.useState(SettingsStore.height)
@@ -39,7 +68,7 @@ const Settings = () => {
       </Helmet>
 
       <View>
-        <HeadingH5>
+        <HeadingH5 style={{ marginTop: 0 }}>
           Settings
           {' '}
           <span aria-label="Settings" aria-hidden={true}>
@@ -49,7 +78,7 @@ const Settings = () => {
 
         <SettingsSubHeading>Personal</SettingsSubHeading>
 
-        <GridRow>
+        <SettingsRow>
           <GridCol sm={6} md={4} lg={3}>
             <Fieldset>
               <Label htmlFor="firstName">First name</Label>
@@ -91,24 +120,6 @@ const Settings = () => {
               />
             </Fieldset>
           </GridCol>
-        </GridRow>
-
-        <SettingsSubHeading>Profile</SettingsSubHeading>
-
-        <GridRow style={{ marginTop: 16 }}>
-          <GridCol sm={6} md={4} lg={3}>
-            <Fieldset>
-              <Label htmlFor="username">Username</Label>
-
-              <Input
-                id="username"
-                name="username"
-                type="text"
-                value={username}
-                onChange={(event) => setUsername(event.target.value)}
-              />
-            </Fieldset>
-          </GridCol>
 
           <GridCol sm={6} md={4} lg={3}>
             <Fieldset>
@@ -118,6 +129,20 @@ const Settings = () => {
                 <option value="female">Female</option>
                 <option value="male">Male</option>
               </Select>
+            </Fieldset>
+          </GridCol>
+
+          <GridCol sm={6} md={4} lg={3}>
+            <Fieldset>
+              <Label htmlFor="date">Date of birth</Label>
+
+              <Input
+                id="date"
+                name="date"
+                type="date"
+                value={date}
+                onChange={(event) => setDate(event.target.value)}
+              />
             </Fieldset>
           </GridCol>
 
@@ -139,6 +164,24 @@ const Settings = () => {
               />
             </Fieldset>
           </GridCol>
+        </SettingsRow>
+
+        <SettingsSubHeading>Profile</SettingsSubHeading>
+
+        <GridRow style={{ marginTop: 16 }}>
+          <GridCol sm={6} md={4} lg={3}>
+            <Fieldset>
+              <Label htmlFor="username">Username</Label>
+
+              <Input
+                id="username"
+                name="username"
+                type="text"
+                value={username}
+                onChange={(event) => setUsername(event.target.value)}
+              />
+            </Fieldset>
+          </GridCol>
         </GridRow>
 
         <SettingsSubHeading>Measurements</SettingsSubHeading>
@@ -152,7 +195,7 @@ const Settings = () => {
           />
         </Fieldset>
 
-        <GridRow style={{ marginTop: 16 }}>
+        <SettingsRow style={{ marginTop: 16 }}>
           <GridCol sm={6} md={4} lg={3}>
             <Fieldset>
               <Label htmlFor="height">Height ({units ? 'cm' : 'inch'})</Label>
@@ -210,7 +253,7 @@ const Settings = () => {
               />
             </Fieldset>
           </GridCol>
-        </GridRow>
+        </SettingsRow>
 
         <SettingsSubHeading>UI settings</SettingsSubHeading>
 
