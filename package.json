@@ -16,6 +16,7 @@
     "not op_mini all"
   ],
   "scripts": {
+    "deploy": "git push heroku master",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
