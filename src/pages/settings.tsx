@@ -114,7 +114,7 @@ const Settings = () => {
             <Fieldset>
               <Label htmlFor="username">Sex</Label>
 
-              <Select name="" id="" defaultValue={sex === 'female' ? 'female' : 'male'}>
+              <Select name="" id="" defaultValue={sex === 'female' ? 'female' : 'male'} onChange={(e) => {setSex(e.target.value)}}>
                 <option value="female">Female</option>
                 <option value="male">Male</option>
               </Select>
