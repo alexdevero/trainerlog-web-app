@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import { GridRow, GridCol } from './../components/grid'
 import { HeadingH5, HeadingH6 } from './../components/typography'
-import { Checkbox, Fieldset, Input, Label } from './../components/form-elements'
+import { Checkbox, Fieldset, Input, Label, Select } from './../components/form-elements'
 import { View } from './../components/constants'
 
 import { SettingsStore } from './../stores/store-settings'
@@ -21,6 +21,7 @@ const Settings = () => {
   const [lastName, setLastName] = React.useState(SettingsStore.lastName)
   const [email, setEmail] = React.useState(SettingsStore.email)
   const [username, setUsername] = React.useState(SettingsStore.username)
+  const [sex, setSex] = React.useState(SettingsStore.sex)
   const [height, setHeight] = React.useState(SettingsStore.height)
   const [weight, setWeight] = React.useState(SettingsStore.weight)
   const [bodyFat, setBodyFat] = React.useState(SettingsStore.bodyFat)
@@ -46,7 +47,7 @@ const Settings = () => {
           </span>
         </HeadingH5>
 
-        <SettingsSubHeading>Personal settings</SettingsSubHeading>
+        <SettingsSubHeading>Personal</SettingsSubHeading>
 
         <GridRow>
           <GridCol sm={6} md={4} lg={3}>
@@ -92,6 +93,8 @@ const Settings = () => {
           </GridCol>
         </GridRow>
 
+        <SettingsSubHeading>Profile</SettingsSubHeading>
+
         <GridRow style={{ marginTop: 16 }}>
           <GridCol sm={6} md={4} lg={3}>
             <Fieldset>
@@ -104,6 +107,17 @@ const Settings = () => {
                 value={username}
                 onChange={(event) => setUsername(event.target.value)}
               />
+            </Fieldset>
+          </GridCol>
+
+          <GridCol sm={6} md={4} lg={3}>
+            <Fieldset>
+              <Label htmlFor="username">Sex</Label>
+
+              <Select name="" id="" defaultValue={sex === 'female' ? 'female' : 'male'}>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+              </Select>
             </Fieldset>
           </GridCol>
 
@@ -141,7 +155,7 @@ const Settings = () => {
         <GridRow style={{ marginTop: 16 }}>
           <GridCol sm={6} md={4} lg={3}>
             <Fieldset>
-              <Label htmlFor="height">Height</Label>
+              <Label htmlFor="height">Height ({units ? 'cm' : 'inch'})</Label>
 
               {/*
                 // TODO: implement better handling of getting user input (empty === isNaN)
@@ -160,7 +174,7 @@ const Settings = () => {
 
           <GridCol sm={6} md={4} lg={3}>
             <Fieldset>
-              <Label htmlFor="weight">Weight</Label>
+              <Label htmlFor="weight">Weight ({units ? 'kg' : 'lbs'})</Label>
 
               {/*
                 // TODO: implement better handling of getting user input (empty === isNaN)
