@@ -23,24 +23,18 @@ const SignInCardHeading = styled(HeadingH6)`
   text-align: center;
 `
 
-const ForgotPassWordWrapper = styled.div`
+const ForgotPasswordWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-top: 12px;
   margin-bottom: 16px;
 `
 
-const NoAccountWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 28px;
-`
-
-const ForgotPassWord = styled.button`
+const ForgotPassword = styled.button`
   padding: 0;
   font-size: 12px;
   text-align: right;
-  color: #111;
+  color: #999;
   background-color: transparent;
   border: 0;
   cursor: pointer;
@@ -55,7 +49,15 @@ const ForgotPassWord = styled.button`
   }
 `
 
-const NoAccount = styled(ForgotPassWord)``
+const NoAccountWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+`
+
+const NoAccount = styled(ForgotPassword)`
+  color: #111;
+`
 
 export const SignInCard = (props: SignInCardInterface) => {
   const [username, setUsername] = React.useState('')
@@ -112,9 +114,9 @@ export const SignInCard = (props: SignInCardInterface) => {
         {passwordError && <ErrorMessage>This field is required.</ErrorMessage>}
       </Fieldset>
 
-      <ForgotPassWordWrapper>
-        <ForgotPassWord onClick={props.forgotPassword}>Forgot your password?</ForgotPassWord>
-      </ForgotPassWordWrapper>
+      <ForgotPasswordWrapper>
+        <ForgotPassword onClick={props.forgotPassword}>Forgot your password?</ForgotPassword>
+      </ForgotPasswordWrapper>
 
       <Fieldset style={{ marginTop: 18 }}>
         <Button fullWidth primary onClick={handleSignIn}>

@@ -35,7 +35,7 @@ const RememberPassword = styled.button`
   padding: 0;
   font-size: 12px;
   text-align: right;
-  color: #111;
+  color: #999;
   background-color: transparent;
   border: 0;
   cursor: pointer;
@@ -51,11 +51,11 @@ const RememberPassword = styled.button`
 `
 
 export const ForgotPasswordCard = (props: ForgotPasswordInterface) => {
-  const [username, setUsername] = React.useState('')
+  const [email, setEmail] = React.useState('')
   const [userEmailError, setUserEmailError] = React.useState(false)
 
   const handleResetPassword = async () => {
-    if (username.length !== 0) {
+    if (email.length !== 0) {
       setUserEmailError(false)
 
       // TODO: Send password reset mail
@@ -72,7 +72,7 @@ export const ForgotPasswordCard = (props: ForgotPasswordInterface) => {
 
       <Fieldset>
         <Label htmlFor="userEmail">Email:</Label>
-        <Input id="userEmail" name="userEmail" type="password" onChange={(event) => setUsername(event.target.value)} />
+        <Input id="userEmail" name="userEmail" type="email" onChange={(event) => setEmail(event.target.value)} />
 
         {userEmailError && <ErrorMessage>This field is required.</ErrorMessage>}
       </Fieldset>
