@@ -1,19 +1,26 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { colors, defaultStyles, View } from './../../components/constants'
 import { Button } from './../../components/button'
+import { colors, defaultStyles, View } from './../../components/constants'
 import { ErrorMessage, Fieldset, Input, Label } from './../../components/form-elements'
+import { HeadingH6 } from './../../components/typography'
 
 import { setCurrentSessionData } from './../../utils/local-storage'
 
-interface LoginCardInterface {
+interface SignInCardInterface {
   forgotPassword: () => void;
+  noAccount: () => void;
   signIn: () => void;
 }
 
-export const LoginCardWrapper = styled(View)`
+export const SignInCardWrapper = styled(View)`
   min-width: 280px;
+`
+
+const SignInCardHeading = styled(HeadingH6)`
+  margin: 0 0 16px;
+  text-align: center;
 `
 
 const ForgotPassWordWrapper = styled.div`
@@ -21,6 +28,12 @@ const ForgotPassWordWrapper = styled.div`
   justify-content: flex-end;
   margin-top: 12px;
   margin-bottom: 16px;
+`
+
+const NoAccountWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
 `
 
 const ForgotPassWord = styled.button`
@@ -42,7 +55,9 @@ const ForgotPassWord = styled.button`
   }
 `
 
-export const LoginCard = (props: LoginCardInterface) => {
+const NoAccount = styled(ForgotPassWord)``
+
+export const SignInCard = (props: SignInCardInterface) => {
   const [username, setUsername] = React.useState('')
   const [password, setPassword] = React.useState('')
   const [usernameError, setUsernameError] = React.useState(false)
@@ -80,7 +95,9 @@ export const LoginCard = (props: LoginCardInterface) => {
   }
 
   return (
-    <LoginCardWrapper>
+    <SignInCardWrapper>
+      <SignInCardHeading>Sign In</SignInCardHeading>
+
       <Fieldset>
         <Label htmlFor="userUsername">Username:</Label>
         <Input data-input="username" id="userUsername" name="userUsername" type="text" onChange={handleInput} />
@@ -96,14 +113,18 @@ export const LoginCard = (props: LoginCardInterface) => {
       </Fieldset>
 
       <ForgotPassWordWrapper>
-        <ForgotPassWord>Forgot your password?</ForgotPassWord>
+        <ForgotPassWord onClick={props.forgotPassword}>Forgot your password?</ForgotPassWord>
       </ForgotPassWordWrapper>
 
-      <Fieldset>
+      <Fieldset style={{ marginTop: 18 }}>
         <Button fullWidth primary onClick={handleSignIn}>
-          Login
+          Sign In
         </Button>
       </Fieldset>
-    </LoginCardWrapper>
+
+      <NoAccountWrapper>
+        <NoAccount>Don't have an account? <strong onClick={props.noAccount}>Sign up</strong></NoAccount>
+      </NoAccountWrapper>
+    </SignInCardWrapper>
   )
 }
