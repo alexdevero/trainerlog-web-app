@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const colors = {
+  black: '#111',
   blue: '#007bff',
   blueHover: '#0069d9',
   gray: '#f0f4fa',
@@ -13,7 +14,7 @@ export const colors = {
 export const defaultStyles = {
   borderRadius: '4px',
   boxShadow: '0 6px 6px rgba(0, 0, 0, .05)',
-  transitionPart: '.25s ease-out'
+  transitionPart: '.25s ease-in-out'
 }
 
 export const Typography = {
