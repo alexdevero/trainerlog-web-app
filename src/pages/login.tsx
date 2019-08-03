@@ -3,7 +3,9 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
 import { colors, View } from './../components/constants'
-import { LoginCard } from './login/card-login'
+import { ForgotPasswordCard } from './login/card-forgot'
+import { SignInCard } from './login/card-sign-in'
+import { SignUpCard } from './login/card-sign-up'
 
 const LoginView = styled(View)`
   display: flex;
@@ -17,9 +19,38 @@ const LoginView = styled(View)`
 
 const Login = ({ signIn }: any) => {
   const [showForgotCard, setShowForgotCard] = React.useState(false)
+  const [showSignUpCard, setShowSignUpCard] = React.useState(false)
 
   const forgotPassword = () => {
-    setShowForgotCard(true)
+    setShowForgotCard(!showForgotCard)
+  }
+
+  const noAccount = () => {
+    setShowSignUpCard(!showSignUpCard)
+  }
+
+  const renderView = () => {
+    if (!showForgotCard && !showSignUpCard) {
+      return (
+        <SignInCard
+          signIn={signIn}
+          forgotPassword={forgotPassword}
+          noAccount={noAccount}
+        />
+      )
+    } else if (showForgotCard) {
+      return (
+        <ForgotPasswordCard
+          rememberPassword={forgotPassword}
+        />
+      )
+    } else {
+      return (
+        <SignUpCard
+          alreadyHaveAccount={noAccount}
+        />
+      )
+    }
   }
 
   return (
@@ -29,12 +60,7 @@ const Login = ({ signIn }: any) => {
       </Helmet>
 
       <LoginView>
-        {!showForgotCard && (
-          <LoginCard
-            signIn={signIn}
-            forgotPassword={forgotPassword}
-          />
-        )}
+        {renderView()}
       </LoginView>
     </>
   )
