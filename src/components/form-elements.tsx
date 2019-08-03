@@ -14,20 +14,24 @@ export const Fieldset = styled.fieldset`
 
 export const Input = styled.input`
   display: block;
-  padding: 8px;
+  padding: 8px 0;
   width: 100%;
-  color: ${colors.grayDark};
+  color: ${colors.black};
   background-color: ${colors.white};
-  border: 1px solid ${colors.gray};
-  border-radius: ${defaultStyles.borderRadius};
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid ${colors.grayMedium};
+  border-left: 0;
 
   &:focus {
-    border: 1px solid ${colors.blue};
+    border-bottom: 1px solid ${colors.blue};
+    outline: 0;
   }
 `
 
 export const Label = styled.label`
   font-size: ${Typography.smaller};
+  color: ${colors.grayDark};
 
   & + input,
   & + select {
@@ -44,6 +48,7 @@ export const ErrorMessage = styled.div`
   }
 `
 
+// Select
 export const Select = styled.select`
   display: block;
   padding: 8px;
@@ -58,6 +63,7 @@ export const Select = styled.select`
   }
 `
 
+// Checkbox
 interface StyledCheckboxInterface {
   checked?: boolean;
 }
@@ -148,3 +154,27 @@ export const Checkbox = (props: CheckboxPropsInterface) => (
     {props.label && <CheckboxLabel>{props.label}</CheckboxLabel>}
   </CheckboxContainer>
 )
+
+// Input + prepend
+// interface InputPrependPropsInterface {
+//   className?: string;
+//   disabled?: boolean;
+//   hidden?: boolean;
+//   id?: string;
+//   label?: string;
+//   name?: string;
+//   placeholder?: string;
+//   prepend?: string;
+//   type?: string;
+//   onChange?: () => void;
+// }
+
+// export const InputPrepend = (props: InputPrependPropsInterface) => (
+//   <div className={props.className}>
+//     <div>
+//       <div>{props.prepend}</div>
+//     </div>
+
+//     <input type={props.type} id={props.id} placeholder={props.placeholder} />
+//   </div>
+// )
