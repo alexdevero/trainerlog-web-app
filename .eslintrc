@@ -258,7 +258,7 @@
     "react/jsx-pascal-case": "error",
     "react/jsx-props-no-multi-spaces": "error",
     "react/jsx-sort-default-props": "error",
-    "react/jsx-sort-props": ["error", { "callbacksLast": true, "shorthandFirst": true, "reservedFirst": true }],
+    "react/jsx-sort-props": ["error", { "callbacksLast": true, "shorthandFirst": true, "noSortAlphabetically" : true, "reservedFirst": true }],
     "react/jsx-space-before-closing": "error",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
