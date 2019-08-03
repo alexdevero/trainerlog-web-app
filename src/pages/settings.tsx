@@ -48,7 +48,7 @@ const Settings = () => {
   const [firstName, setFirstName] = React.useState(SettingsStore.firstName)
   const [lastName, setLastName] = React.useState(SettingsStore.lastName)
   const [email, setEmail] = React.useState(SettingsStore.email)
-  const [date, setDate] = React.useState(SettingsStore.date)
+  const [birthDate, setBirthDate] = React.useState(SettingsStore.birthDate)
   const [username, setUsername] = React.useState(SettingsStore.username)
   const [sex, setSex] = React.useState(SettingsStore.sex)
   const [height, setHeight] = React.useState(SettingsStore.height)
@@ -140,8 +140,8 @@ const Settings = () => {
                 id="date"
                 name="date"
                 type="date"
-                value={date}
-                onChange={(event) => setDate(event.target.value)}
+                value={birthDate}
+                onChange={(event) => setBirthDate(event.target.value)}
               />
             </Fieldset>
           </GridCol>

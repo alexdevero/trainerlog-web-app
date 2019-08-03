@@ -4,6 +4,7 @@ interface SettingsStoreInterface {
   firstName: string;
   lastName: string;
   email: string;
+  date: string;
 
   username: string;
   sex: string;
@@ -25,6 +26,7 @@ export const SettingsStore: SettingsStoreInterface = {
   firstName: 'Tom',
   lastName: 'Jones',
   email: 'tomjones@email.com',
+  date: '2019-08-07',
 
   username: 'tomjones',
   sex: 'male',
