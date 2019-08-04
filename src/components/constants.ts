@@ -5,6 +5,7 @@ export const colors = {
   blue: '#007bff',
   blueHover: '#0069d9',
   gray: '#f0f4fa',
+  grayMedium: '#ddd',
   grayDark: '#6c757d',
   red: '#e41749',
   redHover: '#b6123a',
