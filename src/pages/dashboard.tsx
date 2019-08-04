@@ -36,6 +36,7 @@ const SettingsButton = styled.button`
 `
 
 const Dashboard = () => {
+  // TODO: Implement handlers interacting directly with store
   const [isSettingsVisible, setSettingsVisible] = React.useState(DashboardStore.isSettingsVisible)
   const [isBodyFatGraphVisible, setBodyFatGraphVisible] = React.useState(DashboardStore.isBodyFatGraphVisible)
   const [isBodyWeightGraphVisible, setBodyWeightGraphVisible] = React.useState(DashboardStore.isBodyWeightGraphVisible)
