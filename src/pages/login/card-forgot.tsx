@@ -64,6 +64,20 @@ export const ForgotPasswordCard = (props: ForgotPasswordInterface) => {
     }
   }
 
+  const handleKeypress = (event: any) => {
+    if (event.keyCode === 13) {
+      handleResetPassword()
+    }
+  }
+
+  React.useEffect(() => {
+    window.addEventListener('keypress', handleKeypress)
+
+    return () => {
+      window.removeEventListener('keypress', handleKeypress)
+    }
+  })
+
   return (
     <ForgotPasswordCardWrapper>
       <ForgotPasswordHeading>Forgot your password?</ForgotPasswordHeading>
