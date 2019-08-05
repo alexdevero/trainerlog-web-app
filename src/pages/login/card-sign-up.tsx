@@ -62,6 +62,26 @@ export const SignUpCard = (props: SignUpCardInterface) => {
       setPasswordError(false)
 
       // TODO: Create user account
+    } else if (firstName.length === 0) {
+      setFirstNameError(true)
+    } else if (lastName.length === 0) {
+      setLastNameError(true)
+
+      // Clear previous errors
+      setFirstNameError(false)
+    } else if (username.length === 0) {
+      setUserNameError(true)
+
+      // Clear previous errors
+      setLastNameError(false)
+      setFirstNameError(false)
+    } else if (password.length === 0) {
+      setPasswordError(true)
+
+      // Clear previous errors
+      setUserNameError(false)
+      setLastNameError(false)
+      setFirstNameError(false)
     }
   }
 
@@ -76,6 +96,20 @@ export const SignUpCard = (props: SignUpCardInterface) => {
       setPassword(event.target.value)
     }
   }
+
+  const handleKeypress = (event: any) => {
+    if (event.keyCode === 13) {
+      handleSignUp()
+    }
+  }
+
+  React.useEffect(() => {
+    window.addEventListener('keypress', handleKeypress)
+
+    return () => {
+      window.removeEventListener('keypress', handleKeypress)
+    }
+  })
 
   return (
     <SignInCardWrapper>
@@ -116,7 +150,7 @@ export const SignUpCard = (props: SignUpCardInterface) => {
       </Fieldset>
 
       <AlreadyHaveAccountWrapper>
-        <AlreadyHaveAccount onClick={props.alreadyHaveAccount}>Already have an account?</AlreadyHaveAccount>
+        <AlreadyHaveAccount onClick={props.alreadyHaveAccount}>Already have an account? <strong>Sign in</strong></AlreadyHaveAccount>
       </AlreadyHaveAccountWrapper>
     </SignInCardWrapper>
   )
