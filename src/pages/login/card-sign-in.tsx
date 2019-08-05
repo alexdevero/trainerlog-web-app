@@ -139,7 +139,7 @@ export const SignInCard = (props: SignInCardInterface) => {
       </Fieldset>
 
       <NoAccountWrapper>
-        <NoAccount>Don't have an account? <strong onClick={props.noAccount}>Sign up</strong></NoAccount>
+        <NoAccount onClick={props.noAccount}>Don't have an account? <strong>Sign up</strong></NoAccount>
       </NoAccountWrapper>
     </SignInCardWrapper>
   )
