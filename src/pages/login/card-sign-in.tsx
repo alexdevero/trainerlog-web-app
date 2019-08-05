@@ -96,6 +96,20 @@ export const SignInCard = (props: SignInCardInterface) => {
     }
   }
 
+  const handleKeypress = (event: any) => {
+    if (event.keyCode === 13) {
+      handleSignIn()
+    }
+  }
+
+  React.useEffect(() => {
+    window.addEventListener('keypress', handleKeypress)
+
+    return () => {
+      window.removeEventListener('keypress', handleKeypress)
+    }
+  })
+
   return (
     <SignInCardWrapper>
       <SignInCardHeading>Sign In</SignInCardHeading>
