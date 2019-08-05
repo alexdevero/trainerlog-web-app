@@ -62,26 +62,30 @@ export const SignUpCard = (props: SignUpCardInterface) => {
       setPasswordError(false)
 
       // TODO: Create user account
-    } else if (firstName.length === 0) {
-      setFirstNameError(true)
-    } else if (lastName.length === 0) {
-      setLastNameError(true)
-
-      // Clear previous errors
-      setFirstNameError(false)
-    } else if (username.length === 0) {
-      setUserNameError(true)
-
-      // Clear previous errors
-      setLastNameError(false)
-      setFirstNameError(false)
-    } else if (password.length === 0) {
-      setPasswordError(true)
-
-      // Clear previous errors
-      setUserNameError(false)
-      setLastNameError(false)
-      setFirstNameError(false)
+    } else {
+      [firstName, lastName, username, password].map((input: string, index: number) => {
+        if (input.length === 0) {
+          if (index === 0) {
+            setFirstNameError(true)
+          } else if (index === 1) {
+            setLastNameError(true)
+          } else if (index === 2) {
+            setUserNameError(true)
+          } else if (index === 3) {
+            setPasswordError(true)
+          }
+        } else {
+          if (index === 0) {
+            setFirstNameError(false)
+          } else if (index === 1) {
+            setLastNameError(false)
+          } else if (index === 2) {
+            setUserNameError(false)
+          } else if (index === 3) {
+            setPasswordError(false)
+          }
+        }
+      })
     }
   }
 
@@ -117,28 +121,28 @@ export const SignUpCard = (props: SignUpCardInterface) => {
 
       <Fieldset>
         <Label htmlFor="signUpFirstName">First name:</Label>
-        <Input data-input="signUpFirstName" id="signUpFirstName" name="signUpFirstName" type="text" onChange={handleInput} />
+        <Input required data-input="signUpFirstName" id="signUpFirstName" name="signUpFirstName" type="text" onChange={handleInput} />
 
         {firstNameError && <ErrorMessage>This field is required.</ErrorMessage>}
       </Fieldset>
 
       <Fieldset>
         <Label htmlFor="signUpLastName">Last name:</Label>
-        <Input data-input="signUpLastName" id="signUpLastName" name="signUpLastName" type="text" onChange={handleInput} />
+        <Input required data-input="signUpLastName" id="signUpLastName" name="signUpLastName" type="text" onChange={handleInput} />
 
         {lastNameError && <ErrorMessage>This field is required.</ErrorMessage>}
       </Fieldset>
 
       <Fieldset>
         <Label htmlFor="signUpUsername">Username:</Label>
-        <Input data-input="signUpUsername" id="signUpUsername" name="signUpUsername" type="text" onChange={handleInput} />
+        <Input required data-input="signUpUsername" id="signUpUsername" name="signUpUsername" type="text" onChange={handleInput} />
 
         {userNameError && <ErrorMessage>This field is required.</ErrorMessage>}
       </Fieldset>
 
       <Fieldset>
         <Label htmlFor="signUpPassword">Password:</Label>
-        <Input data-input="signUpPassword" id="signUpPassword" name="signUpPassword" type="password" onChange={handleInput} />
+        <Input required data-input="signUpPassword" id="signUpPassword" name="signUpPassword" type="password" onChange={handleInput} />
 
         {passwordError && <ErrorMessage>This field is required.</ErrorMessage>}
       </Fieldset>
