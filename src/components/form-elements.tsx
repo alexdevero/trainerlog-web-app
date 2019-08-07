@@ -105,12 +105,16 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
 `
 
 const CheckboxIcon = styled.svg`
+  position: absolute;
+  top: 0;
+  left: 0;
   fill: none;
   stroke: #fff;
   stroke-width: 3px;
 `
 
 const StyledCheckbox = styled.div<StyledCheckboxInterface>`
+  position: relative;
   display: block;
   width: 16px;
   height: 16px;
