@@ -8979,10 +8979,10 @@ realpath-native@^1.1.0:
   dependencies:
     util.promisify "^1.0.0"
 
-reaviz@2.4.9:
-  version "2.4.9"
-  resolved "https://registry.yarnpkg.com/reaviz/-/reaviz-2.4.9.tgz#720fdf30d27d3fc71f94102e1cb1d7ecd19d39ad"
-  integrity sha512-NIyy9n1XBDfLWXUOcDd8u/qp/+Sl/gP3y03sV2fIU3luu0Dh1sybvGQoZ0xxndLFqssrKgN5zmMhDL84jx1mFw==
+reaviz@2.4.10:
+  version "2.4.10"
+  resolved "https://registry.yarnpkg.com/reaviz/-/reaviz-2.4.10.tgz#336ed7d7578970af31c5e6cec30b6747dd842d77"
+  integrity sha512-dV7eqxQQK7JaB0ncj87FVcM9YmgGA/BVLrvIJL1qSt1QS58RmFP7Uee/kd3HLSOD68Jczo6o2QC6D6obWDug1g==
   dependencies:
     big-integer "^1.6.43"
     chroma-js "^2.0.3"

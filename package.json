@@ -33,7 +33,7 @@
     "react-helmet": "^5.2.1",
     "react-router-dom": "5.0.1",
     "react-vis": "^1.11.7",
-    "reaviz": "2.4.9",
+    "reaviz": "2.4.10",
     "styled-components": "4.3.2"
   },
   "devDependencies": {
