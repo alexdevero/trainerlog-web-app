@@ -16,7 +16,8 @@ import styled from 'styled-components'
 // import { ExercisesLowerBackStore } from './../../stores/store-exercises-lower-back'
 // import { ExercisesGlutesStore } from './../../stores/store-exercises-glutes'
 // import { ExercisesForearmsStore } from './../../stores/store-exercises-forearms'
-import { ExercisesShouldersStore } from './../../stores/store-exercises-shoulders'
+// import { ExercisesShouldersStore } from './../../stores/store-exercises-shoulders'
+import { ExercisesCardioStore } from './../../stores/store-exercises-cardio'
 
 interface ExercisesArrayInterface {
   equipment: string;
@@ -46,7 +47,7 @@ export const ExercisesTable = () => {
     const generateExercises = async () => {
       let newState: ExercisesArrayInterface[] = await []
 
-      await ExercisesShouldersStore.map((exercise, index) => {
+      await ExercisesCardioStore.map((exercise, index) => {
         if (index < 10) {
           newState.push(exercise)
         }
