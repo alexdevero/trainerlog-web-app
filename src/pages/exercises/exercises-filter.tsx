@@ -6,18 +6,22 @@ import { GridCol, GridRow } from './../../components/grid'
 
 interface ExercisesFilterInterface {
   filterOptions: {
-    showAll: boolean;
     showAbs: boolean;
-    showBack: boolean;
+    showAll: boolean;
     showBiceps: boolean;
+    showCalves: boolean;
     showCardio: boolean;
-    showChest: boolean;
-    showForearm: boolean;
+    showForearms: boolean;
     showGlutes: boolean;
-    showLowerLegs: boolean;
+    showChest: boolean;
+    showLats: boolean;
+    showLowerBack: boolean;
+    showMiddleBack: boolean;
+    showNeck: boolean;
+    showQuadriceps: boolean;
     showShoulders: boolean;
+    showTraps: boolean;
     showTriceps: boolean;
-    showUpperLegs: boolean;
   };
   handleFilterChange: (filter: string) => void;
 }
@@ -100,10 +104,21 @@ export const ExercisesFilter = (props: ExercisesFilterInterface) => {
       <GridCol sm={6} md={4} lg={3}>
         <Fieldset>
           <Checkbox
-            checked={props.filterOptions.showForearm}
+            checked={props.filterOptions.showForearms}
             id="app-theme"
             label="Show forearms"
-            onChange={() => props.handleFilterChange('showForearm')}
+            onChange={() => props.handleFilterChange('showForearms')}
+          />
+        </Fieldset>
+      </GridCol>
+
+      <GridCol sm={6} md={4} lg={3}>
+        <Fieldset>
+          <Checkbox
+            checked={props.filterOptions.showNeck}
+            id="app-theme"
+            label="Show neck"
+            onChange={() => props.handleFilterChange('showNeck')}
           />
         </Fieldset>
       </GridCol>
@@ -122,10 +137,43 @@ export const ExercisesFilter = (props: ExercisesFilterInterface) => {
       <GridCol sm={6} md={4} lg={3}>
         <Fieldset>
           <Checkbox
-            checked={props.filterOptions.showBack}
+            checked={props.filterOptions.showTraps}
             id="app-theme"
-            label="Show back"
-            onChange={() => props.handleFilterChange('showBack')}
+            label="Show traps"
+            onChange={() => props.handleFilterChange('showTraps')}
+          />
+        </Fieldset>
+      </GridCol>
+
+      <GridCol sm={6} md={4} lg={3}>
+        <Fieldset>
+          <Checkbox
+            checked={props.filterOptions.showLats}
+            id="app-theme"
+            label="Show lats"
+            onChange={() => props.handleFilterChange('showLats')}
+          />
+        </Fieldset>
+      </GridCol>
+
+      <GridCol sm={6} md={4} lg={3}>
+        <Fieldset>
+          <Checkbox
+            checked={props.filterOptions.showLowerBack}
+            id="app-theme"
+            label="Show lower back"
+            onChange={() => props.handleFilterChange('showLowerBack')}
+          />
+        </Fieldset>
+      </GridCol>
+
+      <GridCol sm={6} md={4} lg={3}>
+        <Fieldset>
+          <Checkbox
+            checked={props.filterOptions.showMiddleBack}
+            id="app-theme"
+            label="Show middle back"
+            onChange={() => props.handleFilterChange('showMiddleBack')}
           />
         </Fieldset>
       </GridCol>
@@ -155,10 +203,10 @@ export const ExercisesFilter = (props: ExercisesFilterInterface) => {
       <GridCol sm={6} md={4} lg={3}>
         <Fieldset>
           <Checkbox
-            checked={props.filterOptions.showUpperLegs}
+            checked={props.filterOptions.showQuadriceps}
             id="app-theme"
-            label="Show upper legs"
-            onChange={() => props.handleFilterChange('showUpperLegs')}
+            label="Show quadriceps"
+            onChange={() => props.handleFilterChange('showQuadriceps')}
           />
         </Fieldset>
       </GridCol>
@@ -166,10 +214,10 @@ export const ExercisesFilter = (props: ExercisesFilterInterface) => {
       <GridCol sm={6} md={4} lg={3}>
         <Fieldset>
           <Checkbox
-            checked={props.filterOptions.showLowerLegs}
+            checked={props.filterOptions.showCalves}
             id="app-theme"
-            label="Show lower legs"
-            onChange={() => props.handleFilterChange('showLowerLegs')}
+            label="Show calves"
+            onChange={() => props.handleFilterChange('showCalves')}
           />
         </Fieldset>
       </GridCol>

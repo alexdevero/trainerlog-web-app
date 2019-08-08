@@ -1,31 +1,39 @@
 // TODO: Implement firebase and get data from dtb
 
-interface ExercisesFilterStoreInterface {
-  showAll: boolean;
+export interface ExercisesFilterStoreInterface {
   showAbs: boolean;
-  showBack: boolean;
+  showAll: boolean;
   showBiceps: boolean;
+  showCalves: boolean;
   showCardio: boolean;
-  showChest: boolean;
-  showForearm: boolean;
+  showForearms: boolean;
   showGlutes: boolean;
-  showLowerLegs: boolean;
+  showChest: boolean;
+  showLats: boolean;
+  showLowerBack: boolean;
+  showMiddleBack: boolean;
+  showNeck: boolean;
+  showQuadriceps: boolean;
   showShoulders: boolean;
+  showTraps: boolean;
   showTriceps: boolean;
-  showUpperLegs: boolean;
 }
 
 export const ExercisesFilterStore: ExercisesFilterStoreInterface = {
-  showAll: true,
   showAbs: false,
-  showBack: false,
+  showAll: true,
   showBiceps: false,
+  showCalves: false,
   showCardio: false,
-  showChest: false,
-  showForearm: false,
+  showForearms: false,
   showGlutes: false,
-  showLowerLegs: false,
+  showChest: false,
+  showLats: false,
+  showLowerBack: false,
+  showMiddleBack: false,
+  showNeck: false,
+  showQuadriceps: false,
   showShoulders: false,
-  showTriceps: false,
-  showUpperLegs: false,
+  showTraps: false,
+  showTriceps: false
 }
