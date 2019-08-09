@@ -102,7 +102,7 @@ const Exercises = () => {
 
         {filterOpen && <ExercisesFilter filterOptions={filterOptions} handleFilterChange={handleFilterChange} />}
 
-        <ExercisesTable />
+        <ExercisesTable filterOptions={filterOptions} />
       </View>
     </>
   )

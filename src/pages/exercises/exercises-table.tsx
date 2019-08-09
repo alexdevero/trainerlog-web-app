@@ -19,6 +19,12 @@ import styled from 'styled-components'
 // import { ExercisesShouldersStore } from './../../stores/store-exercises-shoulders'
 import { ExercisesCardioStore } from './../../stores/store-exercises-cardio'
 
+import { ExercisesFilterStoreInterface } from './../../stores/store-exercises-filter'
+
+interface ExercisesTableInterface {
+  filterOptions: ExercisesFilterStoreInterface;
+}
+
 interface ExercisesArrayInterface {
   equipment: string;
   id: string;
@@ -40,7 +46,7 @@ const ExercisesTableEl = styled(Table)`
   }
 `
 
-export const ExercisesTable = () => {
+export const ExercisesTable = (props: ExercisesTableInterface) => {
   const [exercisesArray, setExercisesArray] = React.useState<ExercisesArrayInterface[]>([])
 
   React.useEffect(() => {
