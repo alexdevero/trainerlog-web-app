@@ -1,19 +1,43 @@
 import * as React from 'react'
 import { NavLink } from 'react-router-dom'
-import styled from 'styled-components'
+import styled, { css, createGlobalStyle } from 'styled-components'
+
+import { breakpoints } from './../components/constants'
 
 interface SidebarInterface {
+  isSidebarVisible: boolean;
   signOut: any
 }
 
-const SidebarWrapper = styled.aside`
+interface SidebarWrapperInterface {
+  isSidebarVisible: boolean;
+}
+
+const NewGlobalStyle = createGlobalStyle`
+  html {
+    overflow: hidden;
+  }
+`
+
+const SidebarWrapper = styled.aside<SidebarWrapperInterface>`
+  position: fixed;
+  top: 60px;
+  left: 0;
   flex: 1;
   padding: 8px 0;
   background-color: #fff;
   width: 100%;
-  max-width: 60px;
+  height: calc(100vh - 60px);
+  display: none;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${breakpoints.sm}) {
+    display: block;
+    position: static;
+    max-width: 80px;
+    height: initial;
+  }
+
+  @media (min-width: ${breakpoints.md}) {
     max-width: 180px;
   }
 
@@ -27,9 +51,24 @@ const SidebarWrapper = styled.aside`
     padding: 0;
     list-style-type: none;
   }
+
+  ${props => props.isSidebarVisible && css`
+    display: block;
+  `}
+
+  @media (max-width: 575.98px) {
+    ul {
+      min-height: 480px;
+    }
+
+    nav {
+      overflow-y: auto;
+    }
+  }
 `
 
 const SidebarLogo = styled.div`
+  display: none;
   padding-top: 16px;
   padding-bottom: 16px;
   padding-left: 16px;
@@ -37,13 +76,17 @@ const SidebarLogo = styled.div`
   cursor: default;
   user-select: none;
   font-weight: bold;
+
+  @media (min-width: ${breakpoints.sm}) {
+    display: block;
+  }
 `
 
 const SidebarLink = styled(NavLink)`
   display: flex;
   align-items: center;
-  padding-top: 14px;
-  padding-bottom: 14px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   padding-left: 16px;
   font-size: 14px;
   color: #43486a;
@@ -54,16 +97,23 @@ const SidebarLink = styled(NavLink)`
     justify-content: center;
   }
 
+  @media (max-width: 575.98px) {
+    justify-content: flex-start;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
   &:hover {
     background-color: #eee;
+    text-decoration: none;
   }
 `
 
 const SidebarLogoutBtn = styled.button`
   display: flex;
   align-items: center;
-  padding-top: 14px;
-  padding-bottom: 14px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   padding-left: 16px;
   width: 100%;
   font-size: 14px;
@@ -77,6 +127,12 @@ const SidebarLogoutBtn = styled.button`
     justify-content: center;
   }
 
+  @media (max-width: 575.98px) {
+    justify-content: flex-start;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
   &:hover {
     background-color: #eee;
     cursor: pointer;
@@ -87,79 +143,89 @@ const SidebarIcon = styled.span`
   margin-right: 8px;
   width: 18px;
   text-align: center;
+
+  @media (max-width: 575.98px) {
+    margin-right: 6px;
+  }
 `
 
 const SidebarLabel = styled.span`
-  display: none;
+  @media (min-width: ${breakpoints.sm}) {
+    display: none;
+  }
 
-  @media (min-width: 768px) {
+  @media (min-width: ${breakpoints.md}) {
     display: block;
   }
 `
 
 const Sidebar = (props: SidebarInterface) => {
   return (
-    <SidebarWrapper>
-      <nav>
-        <SidebarLogo>TrainerLog</SidebarLogo>
+    <>
+      {props.isSidebarVisible && <NewGlobalStyle />}
 
-        <ul>
-          <li>
-            <SidebarLink exact to="/" activeStyle={{ backgroundColor: '#eee' }}>
-              <SidebarIcon className="fas fa-home" /> <SidebarLabel>Dashboard</SidebarLabel>
-            </SidebarLink>
-          </li>
+      <SidebarWrapper isSidebarVisible={props.isSidebarVisible}>
+        <nav>
+          <SidebarLogo>TL</SidebarLogo>
 
-          <li>
-            <SidebarLink to="/exercises" activeStyle={{ backgroundColor: '#eee' }}>
-              <SidebarIcon className="fas fa-dumbbell" /> <SidebarLabel>Exercises</SidebarLabel>
-            </SidebarLink>
-          </li>
+          <ul>
+            <li>
+              <SidebarLink exact to="/" activeStyle={{ backgroundColor: '#eee' }}>
+                <SidebarIcon className="fas fa-home" /> <SidebarLabel>Dashboard</SidebarLabel>
+              </SidebarLink>
+            </li>
 
-          <li>
-            <SidebarLink to="/measurements" activeStyle={{ backgroundColor: '#eee' }}>
-              <SidebarIcon className="fas fa-weight" /> <SidebarLabel>Measurements</SidebarLabel>
-            </SidebarLink>
-          </li>
+            <li>
+              <SidebarLink to="/exercises" activeStyle={{ backgroundColor: '#eee' }}>
+                <SidebarIcon className="fas fa-dumbbell" /> <SidebarLabel>Exercises</SidebarLabel>
+              </SidebarLink>
+            </li>
 
-          <li>
-            <SidebarLink to="/reports" activeStyle={{ backgroundColor: '#eee' }}>
-              <SidebarIcon className="fas fa-clipboard" /> <SidebarLabel>Reports</SidebarLabel>
-            </SidebarLink>
-          </li>
+            <li>
+              <SidebarLink to="/measurements" activeStyle={{ backgroundColor: '#eee' }}>
+                <SidebarIcon className="fas fa-weight" /> <SidebarLabel>Measurements</SidebarLabel>
+              </SidebarLink>
+            </li>
 
-          <li>
-            <SidebarLink to="/tools" activeStyle={{ backgroundColor: '#eee' }}>
-              <SidebarIcon className="fas fa-tools" /> <SidebarLabel>Tools</SidebarLabel>
-            </SidebarLink>
-          </li>
+            <li>
+              <SidebarLink to="/reports" activeStyle={{ backgroundColor: '#eee' }}>
+                <SidebarIcon className="fas fa-clipboard" /> <SidebarLabel>Reports</SidebarLabel>
+              </SidebarLink>
+            </li>
 
-          <li>
-            <SidebarLink exact to="/wiki" activeStyle={{ backgroundColor: '#eee' }}>
-              <SidebarIcon className="fas fa-lightbulb" /> <SidebarLabel>Wiki</SidebarLabel>
-            </SidebarLink>
-          </li>
+            <li>
+              <SidebarLink to="/tools" activeStyle={{ backgroundColor: '#eee' }}>
+                <SidebarIcon className="fas fa-tools" /> <SidebarLabel>Tools</SidebarLabel>
+              </SidebarLink>
+            </li>
 
-          <li>
-            <SidebarLink exact to="/settings" activeStyle={{ backgroundColor: '#eee' }}>
-              <SidebarIcon className="fas fa-cog" /> <SidebarLabel>Settings</SidebarLabel>
-            </SidebarLink>
-          </li>
+            <li>
+              <SidebarLink exact to="/wiki" activeStyle={{ backgroundColor: '#eee' }}>
+                <SidebarIcon className="fas fa-lightbulb" /> <SidebarLabel>Wiki</SidebarLabel>
+              </SidebarLink>
+            </li>
 
-          <li>
-            <SidebarLink exact to="/about" activeStyle={{ backgroundColor: '#eee' }}>
-              <SidebarIcon className="fas fa-question-circle" /> <SidebarLabel>About</SidebarLabel>
-            </SidebarLink>
-          </li>
+            <li>
+              <SidebarLink exact to="/settings" activeStyle={{ backgroundColor: '#eee' }}>
+                <SidebarIcon className="fas fa-cog" /> <SidebarLabel>Settings</SidebarLabel>
+              </SidebarLink>
+            </li>
 
-          <li>
-            <SidebarLogoutBtn onClick={props.signOut}>
-              <SidebarIcon className="fas fa-sign-out-alt" /> <SidebarLabel>Log out</SidebarLabel>
-            </SidebarLogoutBtn>
-          </li>
-        </ul>
-      </nav>
-    </SidebarWrapper>
+            <li>
+              <SidebarLink exact to="/about" activeStyle={{ backgroundColor: '#eee' }}>
+                <SidebarIcon className="fas fa-question-circle" /> <SidebarLabel>About</SidebarLabel>
+              </SidebarLink>
+            </li>
+
+            <li>
+              <SidebarLogoutBtn onClick={props.signOut}>
+                <SidebarIcon className="fas fa-sign-out-alt" /> <SidebarLabel>Log out</SidebarLabel>
+              </SidebarLogoutBtn>
+            </li>
+          </ul>
+        </nav>
+      </SidebarWrapper>
+    </>
   )
 }
 
