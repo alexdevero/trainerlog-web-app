@@ -18,7 +18,7 @@ import Wiki from './pages/wiki'
 import Layout from './components/layout'
 
 import Footer from './components/footer'
-// import Header from './components/header'
+import Header from './components/header'
 import Sidebar from './components/sidebar'
 
 import { getCurrentSessionData, removeCurrentSessionData } from './utils/local-storage'
@@ -62,6 +62,7 @@ const ViewWrapper = styled.div`
 
 function App() {
   const [isAuthenticated, setAuthenticated] = React.useState(false)
+  const [isSidebarVisible, setSidebarVisible] = React.useState(false)
 
   React.useEffect(() => {
     getCurrentSessionData('trainerlog-login').then((data: any) => {
@@ -81,16 +82,21 @@ function App() {
     })
   }
 
+  const handleSidebarToggle = () => {
+    setSidebarVisible(!isSidebarVisible)
+  }
+
   return (
     <PageWrapper>
       <GlobalStyles />
 
       <BrowserRouter>
-        {/* <Header /> */}
         {isAuthenticated ? (
           <>
             <Layout>
-              <Sidebar signOut={signOut} />
+              <Header isSidebarVisible={isSidebarVisible} handleSidebarToggle={handleSidebarToggle} />
+
+              <Sidebar isSidebarVisible={isSidebarVisible} signOut={signOut} />
 
               <ViewWrapper>
                 <Switch>
