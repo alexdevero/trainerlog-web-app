@@ -38,10 +38,10 @@
   },
   "devDependencies": {
     "@types/bootstrap": "^4.3.1",
-    "@types/react": "16.8.23",
+    "@types/react": "16.9.1",
     "@types/react-bootstrap": "^0.32.19",
     "@types/react-dom": "16.8.5",
-    "@types/react-helmet": "^5.0.8",
+    "@types/react-helmet": "^5.0.9",
     "@types/react-router-dom": "4.3.4",
     "@types/styled-components": "4.1.18",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
