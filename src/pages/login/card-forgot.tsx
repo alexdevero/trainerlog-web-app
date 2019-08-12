@@ -85,7 +85,7 @@ export const ForgotPasswordCard = (props: ForgotPasswordInterface) => {
       <ForgotPasswordInfo>Tell us your email and we will send you a reset link.</ForgotPasswordInfo>
 
       <Fieldset>
-        <Label htmlFor="userEmail">Email:</Label>
+        <Label htmlFor="userEmail">Email</Label>
         <Input id="userEmail" name="userEmail" type="email" onChange={(event) => setEmail(event.target.value)} />
 
         {userEmailError && <ErrorMessage>This field is required.</ErrorMessage>}

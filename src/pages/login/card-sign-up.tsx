@@ -120,28 +120,28 @@ export const SignUpCard = (props: SignUpCardInterface) => {
       <SignInCardHeading>Sign In</SignInCardHeading>
 
       <Fieldset>
-        <Label htmlFor="signUpFirstName">First name:</Label>
+        <Label htmlFor="signUpFirstName">First name</Label>
         <Input required data-input="signUpFirstName" id="signUpFirstName" name="signUpFirstName" type="text" onChange={handleInput} />
 
         {firstNameError && <ErrorMessage>This field is required.</ErrorMessage>}
       </Fieldset>
 
       <Fieldset>
-        <Label htmlFor="signUpLastName">Last name:</Label>
+        <Label htmlFor="signUpLastName">Last name</Label>
         <Input required data-input="signUpLastName" id="signUpLastName" name="signUpLastName" type="text" onChange={handleInput} />
 
         {lastNameError && <ErrorMessage>This field is required.</ErrorMessage>}
       </Fieldset>
 
       <Fieldset>
-        <Label htmlFor="signUpUsername">Username:</Label>
+        <Label htmlFor="signUpUsername">Username</Label>
         <Input required data-input="signUpUsername" id="signUpUsername" name="signUpUsername" type="text" onChange={handleInput} />
 
         {userNameError && <ErrorMessage>This field is required.</ErrorMessage>}
       </Fieldset>
 
       <Fieldset>
-        <Label htmlFor="signUpPassword">Password:</Label>
+        <Label htmlFor="signUpPassword">Password</Label>
         <Input required data-input="signUpPassword" id="signUpPassword" name="signUpPassword" type="password" onChange={handleInput} />
 
         {passwordError && <ErrorMessage>This field is required.</ErrorMessage>}

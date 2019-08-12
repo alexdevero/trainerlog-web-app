@@ -115,14 +115,14 @@ export const SignInCard = (props: SignInCardInterface) => {
       <SignInCardHeading>Sign In</SignInCardHeading>
 
       <Fieldset>
-        <Label htmlFor="userUsername">Username:</Label>
+        <Label htmlFor="userUsername">Username</Label>
         <Input data-input="username" id="userUsername" name="userUsername" type="text" onChange={handleInput} />
 
         {usernameError && <ErrorMessage>This field is required.</ErrorMessage>}
       </Fieldset>
 
       <Fieldset>
-        <Label htmlFor="userPassword">Password:</Label>
+        <Label htmlFor="userPassword">Password</Label>
         <Input data-input="password" id="userPassword" name="userPassword" type="password" onChange={handleInput} />
 
         {passwordError && <ErrorMessage>This field is required.</ErrorMessage>}
