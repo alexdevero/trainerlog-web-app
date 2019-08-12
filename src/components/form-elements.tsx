@@ -14,23 +14,22 @@ export const Fieldset = styled.fieldset`
 
 export const Input = styled.input`
   display: block;
-  padding: 8px 0;
+  padding: 8px;
   width: 100%;
   color: ${colors.black};
   background-color: ${colors.white};
-  border-top: 0;
-  border-right: 0;
-  border-bottom: 1px solid ${colors.grayMedium};
-  border-left: 0;
+  border: 1px solid ${colors.grayMedium};
+  border-radius: ${defaultStyles.borderRadius};
 
   &:focus {
-    border-bottom: 1px solid ${colors.blue};
+    border: 1px solid ${colors.blue};
     outline: 0;
   }
 `
 
 export const Label = styled.label`
   font-size: ${Typography.smaller};
+  font-weight: 700;
   color: ${colors.grayDark};
 
   & + input,
