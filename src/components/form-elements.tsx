@@ -8,7 +8,7 @@ export const Fieldset = styled.fieldset`
   border: 0;
 
   & + & {
-    margin-top: 16px;
+    margin-top: 12px;
   }
 `
 
@@ -28,13 +28,14 @@ export const Input = styled.input`
 `
 
 export const Label = styled.label`
+  margin-bottom: 0;
   font-size: ${Typography.smaller};
   font-weight: 700;
   color: ${colors.grayDark};
 
   & + input,
   & + select {
-    margin-top: 4px;
+    margin-top: 2px;
   }
 `
 
