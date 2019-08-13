@@ -6,19 +6,26 @@ import { colors, defaultStyles, View } from './../../components/constants'
 import { ErrorMessage, Fieldset, Input, Label } from './../../components/form-elements'
 import { HeadingH6 } from './../../components/typography'
 
+import { ReactComponent as Logo } from './../../images/trainerlog-logo-new.svg'
+
 interface ForgotPasswordInterface {
   rememberPassword: () => void;
 }
 
 export const ForgotPasswordCardWrapper = styled(View)`
+  padding-right: 32px;
+  padding-bottom: 32px;
+  padding-left: 32px;
   min-width: 280px;
+  width: 100%;
+  max-width: 360px;
 `
 
 const ForgotPassWordWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-top: 12px;
-  margin-bottom: 16px;
+  margin-top: 6px;
+  margin-bottom: 20px;
 `
 
 const ForgotPasswordHeading = styled(HeadingH6)`
@@ -80,6 +87,14 @@ export const ForgotPasswordCard = (props: ForgotPasswordInterface) => {
 
   return (
     <ForgotPasswordCardWrapper>
+      <Logo
+        style={{
+          display: 'block',
+          margin: '12px auto 22px',
+          width: 80
+        }}
+      />
+
       <ForgotPasswordHeading>Forgot your password?</ForgotPasswordHeading>
 
       <ForgotPasswordInfo>Tell us your email and we will send you a reset link.</ForgotPasswordInfo>

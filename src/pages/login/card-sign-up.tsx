@@ -6,12 +6,19 @@ import { colors, defaultStyles, View } from './../../components/constants'
 import { ErrorMessage, Fieldset, Input, Label } from './../../components/form-elements'
 import { HeadingH6 } from './../../components/typography'
 
+import { ReactComponent as Logo } from './../../images/trainerlog-logo-new.svg'
+
 interface SignUpCardInterface {
   alreadyHaveAccount: () => void;
 }
 
 export const SignInCardWrapper = styled(View)`
+  padding-right: 32px;
+  padding-bottom: 32px;
+  padding-left: 32px;
   min-width: 280px;
+  width: 100%;
+  max-width: 360px;
 `
 
 const SignInCardHeading = styled(HeadingH6)`
@@ -117,6 +124,14 @@ export const SignUpCard = (props: SignUpCardInterface) => {
 
   return (
     <SignInCardWrapper>
+      <Logo
+        style={{
+          display: 'block',
+          margin: '12px auto 22px',
+          width: 80
+        }}
+      />
+
       <SignInCardHeading>Sign In</SignInCardHeading>
 
       <Fieldset>

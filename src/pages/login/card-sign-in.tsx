@@ -6,7 +6,10 @@ import { colors, defaultStyles, View } from './../../components/constants'
 import { ErrorMessage, Fieldset, Input, Label } from './../../components/form-elements'
 import { HeadingH6 } from './../../components/typography'
 
+
 import { setCurrentSessionData } from './../../utils/local-storage'
+
+import { ReactComponent as Logo } from './../../images/trainerlog-logo-new.svg'
 
 interface SignInCardInterface {
   forgotPassword: () => void;
@@ -15,7 +18,12 @@ interface SignInCardInterface {
 }
 
 export const SignInCardWrapper = styled(View)`
+  padding-right: 32px;
+  padding-bottom: 32px;
+  padding-left: 32px;
   min-width: 280px;
+  width: 100%;
+  max-width: 360px;
 `
 
 const SignInCardHeading = styled(HeadingH6)`
@@ -26,8 +34,8 @@ const SignInCardHeading = styled(HeadingH6)`
 const ForgotPasswordWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-top: 12px;
-  margin-bottom: 16px;
+  margin-top: 6px;
+  margin-bottom: 22px;
 `
 
 const ForgotPassword = styled.button`
@@ -112,6 +120,14 @@ export const SignInCard = (props: SignInCardInterface) => {
 
   return (
     <SignInCardWrapper>
+      <Logo
+        style={{
+          display: 'block',
+          margin: '12px auto 22px',
+          width: 80
+        }}
+      />
+
       <SignInCardHeading>Sign In</SignInCardHeading>
 
       <Fieldset>
