@@ -4,6 +4,8 @@ import styled, { css, createGlobalStyle } from 'styled-components'
 
 import { breakpoints } from './../components/constants'
 
+import { ReactComponent as Logo } from './../images/trainerlog-logo-new.svg'
+
 interface SidebarInterface {
   isSidebarVisible: boolean;
   signOut: any
@@ -75,10 +77,29 @@ const SidebarLogo = styled.div`
   line-height: 1;
   cursor: default;
   user-select: none;
+  font-size: 18px;
   font-weight: bold;
 
+  span {
+    display: none;
+  }
+
   @media (min-width: ${breakpoints.sm}) {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (min-width: ${breakpoints.md}) {
+    justify-content: flex-start;
+
+    svg {
+      margin-right: 8px;
+    }
+
+    span {
+      display: block;
+    }
   }
 `
 
@@ -166,60 +187,87 @@ const Sidebar = (props: SidebarInterface) => {
 
       <SidebarWrapper isSidebarVisible={props.isSidebarVisible}>
         <nav>
-          <SidebarLogo>TL</SidebarLogo>
+          <SidebarLogo>
+            <Logo
+              style={{
+                display: 'block',
+                width: 20
+              }}
+            />
+            {' '}
+            <span>TrainerLog</span>
+          </SidebarLogo>
 
           <ul>
             <li>
               <SidebarLink exact to="/" activeStyle={{ backgroundColor: '#eee' }}>
-                <SidebarIcon className="fas fa-home" /> <SidebarLabel>Dashboard</SidebarLabel>
+                <SidebarIcon className="fas fa-home" />
+                {' '}
+                <SidebarLabel>Dashboard</SidebarLabel>
               </SidebarLink>
             </li>
 
             <li>
               <SidebarLink to="/exercises" activeStyle={{ backgroundColor: '#eee' }}>
-                <SidebarIcon className="fas fa-dumbbell" /> <SidebarLabel>Exercises</SidebarLabel>
+                <SidebarIcon className="fas fa-dumbbell" />
+                {' '}
+                <SidebarLabel>Exercises</SidebarLabel>
               </SidebarLink>
             </li>
 
             <li>
               <SidebarLink to="/measurements" activeStyle={{ backgroundColor: '#eee' }}>
-                <SidebarIcon className="fas fa-weight" /> <SidebarLabel>Measurements</SidebarLabel>
+                <SidebarIcon className="fas fa-weight" />
+                {' '}
+                <SidebarLabel>Measurements</SidebarLabel>
               </SidebarLink>
             </li>
 
             <li>
               <SidebarLink to="/reports" activeStyle={{ backgroundColor: '#eee' }}>
-                <SidebarIcon className="fas fa-clipboard" /> <SidebarLabel>Reports</SidebarLabel>
+                <SidebarIcon className="fas fa-clipboard" />
+                {' '}
+                <SidebarLabel>Reports</SidebarLabel>
               </SidebarLink>
             </li>
 
             <li>
               <SidebarLink to="/tools" activeStyle={{ backgroundColor: '#eee' }}>
-                <SidebarIcon className="fas fa-tools" /> <SidebarLabel>Tools</SidebarLabel>
+                <SidebarIcon className="fas fa-tools" />
+                {' '}
+                <SidebarLabel>Tools</SidebarLabel>
               </SidebarLink>
             </li>
 
             <li>
               <SidebarLink exact to="/wiki" activeStyle={{ backgroundColor: '#eee' }}>
-                <SidebarIcon className="fas fa-lightbulb" /> <SidebarLabel>Wiki</SidebarLabel>
+                <SidebarIcon className="fas fa-lightbulb" />
+                {' '}
+                <SidebarLabel>Wiki</SidebarLabel>
               </SidebarLink>
             </li>
 
             <li>
               <SidebarLink exact to="/settings" activeStyle={{ backgroundColor: '#eee' }}>
-                <SidebarIcon className="fas fa-cog" /> <SidebarLabel>Settings</SidebarLabel>
+                <SidebarIcon className="fas fa-cog" />
+                {' '}
+                <SidebarLabel>Settings</SidebarLabel>
               </SidebarLink>
             </li>
 
             <li>
               <SidebarLink exact to="/about" activeStyle={{ backgroundColor: '#eee' }}>
-                <SidebarIcon className="fas fa-question-circle" /> <SidebarLabel>About</SidebarLabel>
+                <SidebarIcon className="fas fa-question-circle" />
+                {' '}
+                <SidebarLabel>About</SidebarLabel>
               </SidebarLink>
             </li>
 
             <li>
               <SidebarLogoutBtn onClick={props.signOut}>
-                <SidebarIcon className="fas fa-sign-out-alt" /> <SidebarLabel>Log out</SidebarLabel>
+                <SidebarIcon className="fas fa-sign-out-alt" />
+                {' '}
+                <SidebarLabel>Log out</SidebarLabel>
               </SidebarLogoutBtn>
             </li>
           </ul>

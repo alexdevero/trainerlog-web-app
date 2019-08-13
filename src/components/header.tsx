@@ -4,6 +4,8 @@ import styled, { css } from 'styled-components'
 
 import { breakpoints, colors, defaultStyles } from './constants'
 
+import { ReactComponent as Logo } from './../images/trainerlog-logo-new.svg'
+
 interface HeaderInterface {
   isSidebarVisible: boolean;
   handleSidebarToggle: () => void;
@@ -37,11 +39,18 @@ const HeaderNav = styled.nav`
 `
 
 const HeaderLogo = styled(Link)`
+  display: flex;
+  align-items: center;
+  font-size: 26px;
   font-weight: 700;
   color: ${colors.black};
 
   &:hover {
     text-decoration: none;
+  }
+
+  svg {
+    margin-right: 6px;
   }
 `
 
@@ -92,7 +101,16 @@ const Header = (props: HeaderInterface) => {
   return (
     <HeaderEl>
       <HeaderNav>
-        <HeaderLogo to="/">TL</HeaderLogo>
+        <HeaderLogo to="/">
+          <Logo
+            style={{
+              display: 'block',
+              width: 26
+            }}
+          />
+          {' '}
+          TL
+        </HeaderLogo>
 
         <HeaderMenuToggler isSidebarVisible={props.isSidebarVisible} onClick={props.handleSidebarToggle}>
           <MenuTogglerBar />
