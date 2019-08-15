@@ -24,8 +24,20 @@ import Sidebar from './components/sidebar'
 import { getCurrentSessionData, removeCurrentSessionData } from './utils/local-storage'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'reaviz/dist/index.css'
 
 const GlobalStyles = createGlobalStyle`
+  :root {
+    /* Color settings for Reaviz graphs */
+    --color-background:#22272b;
+    --color-on-background:#fff;
+    --color-layer-transparent:rgba(0,5,11,0.9);
+    --color-surface:#2c343a;
+    --color-primary:#007bff;
+    --color-on-primary:#fff;
+    --color-on-surface: #fff;
+  }
+
   html,
   body {
     min-height: 100vh;
