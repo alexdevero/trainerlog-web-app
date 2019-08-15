@@ -269,6 +269,7 @@
     "@typescript-eslint/ban-types": "error",
     "@typescript-eslint/camelcase": "error",
     "@typescript-eslint/class-name-casing": "error",
+    "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
     // "@typescript-eslint/explicit-function-return-type": "error",
     // "@typescript-eslint/explicit-member-accessibility": "error",
     "@typescript-eslint/indent": ["warn", 2, {"SwitchCase": 1}],
@@ -288,7 +289,6 @@
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-use-before-define": "error",
     "@typescript-eslint/no-var-requires": "error",
-    "@typescript-eslint/prefer-interface": "error",
     "@typescript-eslint/prefer-namespace-keyword": "error",
     "@typescript-eslint/type-annotation-spacing": "error"
   }
