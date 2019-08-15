@@ -10,6 +10,7 @@ import { View } from './../components/constants'
 import { SettingsStore } from './../stores/store-settings'
 
 const SettingsSubHeading = styled(HeadingH6)`
+  margin-top: 28px;
   margin-bottom: 12px;
 `
 
@@ -67,15 +68,15 @@ const Settings = () => {
         <title>Settings | TrainerLog</title>
       </Helmet>
 
-      <View>
-        <HeadingH5 style={{ marginTop: 0 }}>
-          Settings
-          {' '}
-          <span aria-label="Settings" aria-hidden={true}>
-            🛠
-          </span>
-        </HeadingH5>
+      <HeadingH5 style={{ marginTop: 0, marginBottom: 16 }}>
+        Settings
+        {' '}
+        <span aria-label="Settings" aria-hidden={true}>
+          🛠
+        </span>
+      </HeadingH5>
 
+      <View>
         <SettingsSubHeading>Personal</SettingsSubHeading>
 
         <SettingsRow>
