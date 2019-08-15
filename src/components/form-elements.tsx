@@ -55,7 +55,7 @@ export const Select = styled.select`
   width: 100%;
   color: ${colors.grayDark};
   background-color: ${colors.white};
-  border: 1px solid ${colors.gray};
+  border: 1px solid ${colors.grayMedium};
   border-radius: ${defaultStyles.borderRadius};
 
   &:focus {
