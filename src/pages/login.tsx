@@ -5,7 +5,8 @@ import styled from 'styled-components'
 import { colors, View } from './../components/constants'
 import { ForgotPasswordCard } from './login/card-forgot'
 import { SignInCard } from './login/card-sign-in'
-import { SignUpCard } from './login/card-sign-up'
+// import { SignUpCard } from './login/card-sign-up'
+import { BetaCard } from './login/card-beta'
 
 const LoginView = styled(View)`
   display: flex;
@@ -46,7 +47,10 @@ const Login = ({ signIn }: any) => {
       )
     } else {
       return (
-        <SignUpCard
+        // <SignUpCard
+        //   alreadyHaveAccount={noAccount}
+        // />
+        <BetaCard
           alreadyHaveAccount={noAccount}
         />
       )
