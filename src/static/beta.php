@@ -5,7 +5,7 @@
     $envFile = fopen(".env","r");
     $myEmail = fgets($envFile);
     // Get the form fields and remove whitespace.
-    $email = $_POST; // data from form ends up in $_POST superglobal
+    $email = $_POST["email"]; // data from form ends up in $_POST superglobal ($_POST is an array!)
 
     // Check that data was sent to the mailer.
     if (empty($email)) {
