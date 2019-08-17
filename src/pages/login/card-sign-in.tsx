@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import { toast } from 'react-toastify'
 
 import { Button } from './../../components/button'
 import { colors, defaultStyles, View } from './../../components/constants'
@@ -86,6 +87,10 @@ export const SignInCard = (props: SignInCardInterface) => {
       await setCurrentSessionData('trainerlog-login', loginData)
 
       await props.signIn()
+
+      toast.info(`Welcome back ${username}!`, {
+        position: toast.POSITION.BOTTOM_RIGHT
+      })
     } else if (username.length === 0 && password.length === 0) {
       setUsernameError(true)
       setPasswordError(true)
