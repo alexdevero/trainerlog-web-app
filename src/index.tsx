@@ -2,6 +2,7 @@ import * as React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import styled, { createGlobalStyle } from 'styled-components'
+import { ToastContainer } from 'react-toastify'
 
 import About from './pages/about'
 import Exercise from './pages/exercise'
@@ -25,6 +26,7 @@ import { getCurrentSessionData, removeCurrentSessionData } from './utils/local-s
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'reaviz/dist/index.css'
+import 'react-toastify/dist/ReactToastify.css'
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -132,6 +134,9 @@ function App() {
           <Route path="*" component={() => <Login signIn={signIn} />} />
         )}
       </BrowserRouter>
+
+      {/* Main container for all in-app toast notifications */}
+      <ToastContainer />
     </PageWrapper>
   )
 }
