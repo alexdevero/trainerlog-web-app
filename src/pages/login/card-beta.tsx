@@ -1,6 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { ToastContainer, toast } from 'react-toastify'
+import axios from 'axios'
+import { toast } from 'react-toastify'
 
 import { Button } from './../../components/button'
 import { colors, defaultStyles, View } from './../../components/constants'
@@ -64,10 +65,25 @@ export const BetaCard = (props: BetaCardInterface) => {
 
   const handleBetaSignUp = async () => {
     if (email.length !== 0) {
-      setUserEmailError(false)
+      await setUserEmailError(false)
 
       // TODO: Send register email
-      toast.success('You are in!', {
+      const formData = await new FormData()
+      await formData.set('email', email)
+
+      await axios.post(require('./../../static/beta.php'), formData)
+        .then(() => {
+          toast.success('You are in!', {
+            position: toast.POSITION.BOTTOM_RIGHT
+          })
+        })
+        .catch(() => {
+          toast.error('Sending failed. Please, refresh the page and try it again.', {
+            position: toast.POSITION.BOTTOM_RIGHT
+          })
+        })
+
+      toast.success('Click!', {
         position: toast.POSITION.BOTTOM_RIGHT
       })
     } else {
