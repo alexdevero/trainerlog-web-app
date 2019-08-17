@@ -21,7 +21,7 @@ export const ForgotPasswordCardWrapper = styled(View)`
   max-width: 360px;
 `
 
-const ForgotPassWordWrapper = styled.div`
+const ForgotPasswordWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-top: 6px;
@@ -106,9 +106,9 @@ export const ForgotPasswordCard = (props: ForgotPasswordInterface) => {
         {userEmailError && <ErrorMessage>This field is required.</ErrorMessage>}
       </Fieldset>
 
-      <ForgotPassWordWrapper>
+      <ForgotPasswordWrapper>
         <RememberPassword onClick={props.rememberPassword}>Do you remember your password?</RememberPassword>
-      </ForgotPassWordWrapper>
+      </ForgotPasswordWrapper>
 
       <Fieldset style={{ marginTop: 18 }}>
         <Button fullWidth primary onClick={handleResetPassword}>
