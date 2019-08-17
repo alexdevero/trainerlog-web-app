@@ -19,8 +19,7 @@
     "deploy": "git push heroku master",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --env=jsdom"
   },
   "main": "src/index.tsx",
   "dependencies": {
