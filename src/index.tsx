@@ -15,6 +15,7 @@ import Reports from './pages/reports'
 import Settings from './pages/settings'
 import Tools from './pages/tools'
 import Wiki from './pages/wiki'
+import Wods from './pages/wods'
 
 import Layout from './components/layout'
 
@@ -117,6 +118,7 @@ function App() {
                   <Route exact path="/" component={Dashboard} />
                   <Route exact path="/exercises" component={Exercises} />
                   <Route path="/exercises/:exercise" component={Exercise} />
+                  <Route exact path="/wods" component={Wods} />
                   <Route path="/measurements" component={Measurements} />
                   <Route path="/reports" component={Reports} />
                   <Route path="/tools" component={Tools} />
