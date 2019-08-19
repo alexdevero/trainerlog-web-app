@@ -66,6 +66,7 @@ const SidebarWrapper = styled.aside<SidebarWrapperInterface>`
     }
 
     nav {
+      padding-bottom: 60px;
       overflow-y: auto;
     }
   }
