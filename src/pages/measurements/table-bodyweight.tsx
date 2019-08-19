@@ -9,7 +9,7 @@ export const TableBodyweight = () => (
   <>
     <HeadingH6 style={{ marginBottom: 12 }}>Bodyweight</HeadingH6>
 
-    <Table hover>
+    <Table hover responsive>
       <thead style={{ fontSize: 13 }}>
         <tr>
           <th>#</th>

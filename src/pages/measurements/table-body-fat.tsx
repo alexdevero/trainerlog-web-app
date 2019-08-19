@@ -8,7 +8,7 @@ export const TableBodyFat = () => (
   <>
     <HeadingH6 style={{ marginBottom: 12 }}>Body fat %</HeadingH6>
 
-    <Table hover>
+    <Table hover responsive>
       <thead style={{ fontSize: 13 }}>
         <tr>
           <th>#</th>

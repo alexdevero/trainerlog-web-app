@@ -8,7 +8,7 @@ export const TableCaloricIntake = () => (
   <>
     <HeadingH6 style={{ marginBottom: 12 }}>Caloric intake</HeadingH6>
 
-    <Table hover>
+    <Table hover responsive>
       <thead style={{ fontSize: 13 }}>
         <tr>
           <th>#</th>
