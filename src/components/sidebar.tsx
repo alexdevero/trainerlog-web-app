@@ -26,11 +26,12 @@ const SidebarWrapper = styled.aside<SidebarWrapperInterface>`
   position: fixed;
   top: 60px;
   left: 0;
+  z-index: 999;
+  display: none;
   flex: 1;
   background-color: #fff;
   width: 100%;
   height: calc(100vh - 60px);
-  display: none;
 
   @media (min-width: ${breakpoints.sm}) {
     display: block;
