@@ -66,7 +66,7 @@ export const ExercisesTable = (props: ExercisesTableInterface) => {
   }, [])
 
   return (
-    <ExercisesTableEl hover>
+    <ExercisesTableEl hover responsive>
       <thead>
         <tr>
           <th>#</th>
