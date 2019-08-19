@@ -17,8 +17,10 @@ interface SidebarWrapperInterface {
 }
 
 const NewGlobalStyle = createGlobalStyle`
-  html {
-    overflow: hidden;
+  @media (max-width: 575.98px) {
+    html {
+      overflow: hidden;
+    }
   }
 `
 
