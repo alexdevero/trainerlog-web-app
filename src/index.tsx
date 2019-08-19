@@ -112,7 +112,7 @@ function App() {
             <Layout>
               <Header isSidebarVisible={isSidebarVisible} handleSidebarToggle={handleSidebarToggle} />
 
-              <Sidebar isSidebarVisible={isSidebarVisible} signOut={signOut} />
+              <Sidebar handleSidebarToggle={handleSidebarToggle} isSidebarVisible={isSidebarVisible} handleSignOut={signOut} />
 
               <ViewWrapper>
                 <Switch>

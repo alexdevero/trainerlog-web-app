@@ -7,8 +7,9 @@ import { breakpoints } from './../components/constants'
 import { ReactComponent as Logo } from './../images/trainerlog-logo-new.svg'
 
 interface SidebarInterface {
+  handleSidebarToggle: () => void;
+  handleSignOut: () => void;
   isSidebarVisible: boolean;
-  signOut: any
 }
 
 interface SidebarWrapperInterface {
@@ -26,7 +27,6 @@ const SidebarWrapper = styled.aside<SidebarWrapperInterface>`
   top: 60px;
   left: 0;
   flex: 1;
-  padding: 8px 0;
   background-color: #fff;
   width: 100%;
   height: calc(100vh - 60px);
@@ -35,6 +35,7 @@ const SidebarWrapper = styled.aside<SidebarWrapperInterface>`
   @media (min-width: ${breakpoints.sm}) {
     display: block;
     position: static;
+    padding: 8px 0;
     max-width: 80px;
     height: initial;
   }
@@ -200,7 +201,7 @@ const Sidebar = (props: SidebarInterface) => {
 
           <ul>
             <li>
-              <SidebarLink exact to="/" activeStyle={{ backgroundColor: '#eee' }}>
+              <SidebarLink exact to="/" activeStyle={{ backgroundColor: '#eee' }} onClick={props.handleSidebarToggle}>
                 <SidebarIcon className="fas fa-home" />
                 {' '}
                 <SidebarLabel>Dashboard</SidebarLabel>
@@ -208,7 +209,7 @@ const Sidebar = (props: SidebarInterface) => {
             </li>
 
             <li>
-              <SidebarLink to="/exercises" activeStyle={{ backgroundColor: '#eee' }}>
+              <SidebarLink to="/exercises" activeStyle={{ backgroundColor: '#eee' }} onClick={props.handleSidebarToggle}>
                 <SidebarIcon className="fas fa-dumbbell" />
                 {' '}
                 <SidebarLabel>Exercises</SidebarLabel>
@@ -216,7 +217,7 @@ const Sidebar = (props: SidebarInterface) => {
             </li>
 
             <li>
-              <SidebarLink to="/measurements" activeStyle={{ backgroundColor: '#eee' }}>
+              <SidebarLink to="/measurements" activeStyle={{ backgroundColor: '#eee' }} onClick={props.handleSidebarToggle}>
                 <SidebarIcon className="fas fa-weight" />
                 {' '}
                 <SidebarLabel>Measurements</SidebarLabel>
@@ -224,7 +225,7 @@ const Sidebar = (props: SidebarInterface) => {
             </li>
 
             <li>
-              <SidebarLink to="/reports" activeStyle={{ backgroundColor: '#eee' }}>
+              <SidebarLink to="/reports" activeStyle={{ backgroundColor: '#eee' }} onClick={props.handleSidebarToggle}>
                 <SidebarIcon className="fas fa-clipboard" />
                 {' '}
                 <SidebarLabel>Reports</SidebarLabel>
@@ -232,7 +233,7 @@ const Sidebar = (props: SidebarInterface) => {
             </li>
 
             <li>
-              <SidebarLink to="/tools" activeStyle={{ backgroundColor: '#eee' }}>
+              <SidebarLink to="/tools" activeStyle={{ backgroundColor: '#eee' }} onClick={props.handleSidebarToggle}>
                 <SidebarIcon className="fas fa-tools" />
                 {' '}
                 <SidebarLabel>Tools</SidebarLabel>
@@ -240,7 +241,7 @@ const Sidebar = (props: SidebarInterface) => {
             </li>
 
             <li>
-              <SidebarLink exact to="/wiki" activeStyle={{ backgroundColor: '#eee' }}>
+              <SidebarLink exact to="/wiki" activeStyle={{ backgroundColor: '#eee' }} onClick={props.handleSidebarToggle}>
                 <SidebarIcon className="fas fa-lightbulb" />
                 {' '}
                 <SidebarLabel>Wiki</SidebarLabel>
@@ -248,7 +249,7 @@ const Sidebar = (props: SidebarInterface) => {
             </li>
 
             <li>
-              <SidebarLink exact to="/settings" activeStyle={{ backgroundColor: '#eee' }}>
+              <SidebarLink exact to="/settings" activeStyle={{ backgroundColor: '#eee' }} onClick={props.handleSidebarToggle}>
                 <SidebarIcon className="fas fa-cog" />
                 {' '}
                 <SidebarLabel>Settings</SidebarLabel>
@@ -256,7 +257,7 @@ const Sidebar = (props: SidebarInterface) => {
             </li>
 
             <li>
-              <SidebarLink exact to="/about" activeStyle={{ backgroundColor: '#eee' }}>
+              <SidebarLink exact to="/about" activeStyle={{ backgroundColor: '#eee' }} onClick={props.handleSidebarToggle}>
                 <SidebarIcon className="fas fa-question-circle" />
                 {' '}
                 <SidebarLabel>About</SidebarLabel>
@@ -264,7 +265,7 @@ const Sidebar = (props: SidebarInterface) => {
             </li>
 
             <li>
-              <SidebarLogoutBtn onClick={props.signOut}>
+              <SidebarLogoutBtn onClick={props.handleSignOut}>
                 <SidebarIcon className="fas fa-sign-out-alt" />
                 {' '}
                 <SidebarLabel>Log out</SidebarLabel>
