@@ -43,7 +43,7 @@ const GridRowWrapper = styled(GridRow)`
 `
 
 export const DashboardSettings = (props: DashboardSettingsPropsInterface) => (
-  <div>
+  <div style={{ margin: '0 0 32px' }}>
     <HeadingH6 style={{ margin: '0 0 12px' }}>Statistics settings</HeadingH6>
 
     <GridRowWrapper>
