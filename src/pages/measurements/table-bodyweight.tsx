@@ -25,7 +25,7 @@ export const TableBodyweight = () => (
             <tr key={item.id}>
               <td>{index + 1}</td>
               <td>{moment(item.key).format('DD. MM. YYYY')}</td>
-              <td>{item.data}</td>
+              <td>{Number.parseFloat('' + item.data).toFixed(2)}</td>
               <td>
                 <Dropdown alignRight>
                   <Dropdown.Toggle style={{ padding: 0, background: 'transparent', border: 'none' }} variant="light" id="dropdown-basic">
