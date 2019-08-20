@@ -69,50 +69,50 @@ const Dashboard = () => {
 
         <GridRow>
           {isBodyWeightGraphVisible && (
-            <GridCol md={6} xl={4}>
+            <GridCol md={6}>
               <HeadingH5>Your weight</HeadingH5>
 
               <LineChart
                 data={dataBodyWeight}
-                height={250}
-                width={250}
+                height={350}
+                // width={250}
               />
             </GridCol>
           )}
 
           {isBodyFatGraphVisible && (
-            <GridCol md={6} xl={4}>
+            <GridCol md={6}>
               <HeadingH5>Your body fat %</HeadingH5>
 
               <LineChart
                 data={dataBodyFat}
-                height={250}
-                width={250}
+                height={350}
+                // width={250}
               />
             </GridCol>
           )}
 
           {isPrEquipmentGraphVisible && (
-            <GridCol md={6} xl={4}>
+            <GridCol md={6}>
               <HeadingH5>Your PRs (equipment)</HeadingH5>
 
               <BarChart
                 data={dataPrEquipment}
-                height={250}
-                width={350}
+                height={350}
+                // width={350}
                 // gridlines={<GridlineSeries />}
               />
             </GridCol>
           )}
 
           {isPrWeightGraphVisible && (
-            <GridCol md={6} xl={4}>
+            <GridCol md={6}>
               <HeadingH5>Your PRs (body weight)</HeadingH5>
 
               <BarChart
                 data={dataPrBodyWeight}
-                height={250}
-                width={350}
+                height={350}
+                // width={350}
                 // gridlines={<GridlineSeries />}
               />
             </GridCol>
