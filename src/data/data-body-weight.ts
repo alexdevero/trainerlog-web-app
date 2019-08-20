@@ -65,7 +65,7 @@ export const dataBodyWeight = [
     data: 63.5
   },
   {
-    key: new Date('2019-07-13T06:00:00.000Z'),
+    key: new Date('2019-07-14T06:00:00.000Z'),
     id: '14',
     data: 62.6
   }
