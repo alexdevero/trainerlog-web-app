@@ -1,6 +1,8 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
-import { GridRow, GridCol } from './../components/grid'
+// import { GridRow, GridCol } from './../components/grid'
+import Tab from 'react-bootstrap/Tab'
+import Tabs from 'react-bootstrap/Tabs'
 
 import { HeadingH5 } from './../components/typography'
 import { TableBodyFat } from './measurements/table-body-fat'
@@ -11,54 +13,79 @@ import { TableMuscleMass } from './measurements/table-muscle-mass'
 import { TableWaterIntake } from './measurements/table-water-intake'
 import { View } from './../components/constants'
 
-const Measurements = () => (
-  <>
-    <Helmet>
-      <title>Measurements | TrainerLog</title>
-    </Helmet>
+const Measurements = () => {
+  const [activeTab, setActiveTab] = React.useState('bodyweight')
 
-    <View>
-      <HeadingH5 style={{ marginTop: 0 }}>
-        Measurements
-        {' '}
-        <span aria-label="Scale" aria-hidden={true}>
-          ⚖
-        </span>
-      </HeadingH5>
+  return (
+    <>
+      <Helmet>
+        <title>Measurements | TrainerLog</title>
+      </Helmet>
 
-      <p>Measurements for for weight, height, body fat and also body parts, i.e. biceps, triceps, abs, legs, etc. Helps you measure your progress.</p>
+      <View>
+        <HeadingH5 style={{ marginTop: 0 }}>
+          Measurements
+          {' '}
+          <span aria-label="Scale" aria-hidden={true}>
+            ⚖
+          </span>
+        </HeadingH5>
 
-      <GridRow style={{ marginTop: 21 }}>
-        <GridCol md={6}>
-          <TableBodyweight />
-        </GridCol>
+        <p>Measurements for for weight, height, body fat and also body parts, i.e. biceps, triceps, abs, legs, etc. Helps you measure your progress.</p>
 
-        <GridCol md={6}>
-          <TableMuscleMass />
-        </GridCol>
-      </GridRow>
+        <Tabs id="controlled-tab" activeKey={activeTab} onSelect={(k: string) => setActiveTab(k)}>
+          <Tab eventKey="bodyweight" title="Bodyweight">
+            <TableBodyweight />
+          </Tab>
+          <Tab eventKey="muscleMass" title="Muscle Mass">
+            <TableMuscleMass />
+          </Tab>
+          <Tab eventKey="bodyFat" title="Body Fat">
+            <TableBodyFat />
+          </Tab>
+          <Tab eventKey="bodyWater" title="Body Water">
+            <TableBodyWater />
+          </Tab>
+          <Tab eventKey="caloricIntake" title="Caloric Intake">
+            <TableCaloricIntake />
+          </Tab>
+          <Tab eventKey="waterIntake" title="Water Intake">
+            <TableWaterIntake />
+          </Tab>
+        </Tabs>
 
-      <GridRow style={{ marginTop: 21 }}>
-        <GridCol md={6}>
-          <TableBodyFat />
-        </GridCol>
+        {/* <GridRow style={{ marginTop: 21 }}>
+          <GridCol md={6}>
+            <TableBodyweight />
+          </GridCol>
 
-        <GridCol md={6}>
-          <TableBodyWater />
-        </GridCol>
-      </GridRow>
+          <GridCol md={6}>
+            <TableMuscleMass />
+          </GridCol>
+        </GridRow>
 
-      <GridRow style={{ marginTop: 21 }}>
-        <GridCol md={6}>
-          <TableCaloricIntake />
-        </GridCol>
+        <GridRow style={{ marginTop: 21 }}>
+          <GridCol md={6}>
+            <TableBodyFat />
+          </GridCol>
 
-        <GridCol md={6}>
-          <TableWaterIntake />
-        </GridCol>
-      </GridRow>
-    </View>
-  </>
-)
+          <GridCol md={6}>
+            <TableBodyWater />
+          </GridCol>
+        </GridRow>
+
+        <GridRow style={{ marginTop: 21 }}>
+          <GridCol md={6}>
+            <TableCaloricIntake />
+          </GridCol>
+
+          <GridCol md={6}>
+            <TableWaterIntake />
+          </GridCol>
+        </GridRow> */}
+      </View>
+    </>
+  )
+}
 
 export default Measurements
