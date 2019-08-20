@@ -1,38 +1,47 @@
 export const dataPrEquipment = [
   {
-    key: 'Barbell curl',
-    data: 35
+    data: 35,
+    id: 'dpreq_1',
+    key: 'Barbell curl'
   },
   {
-    key: 'Dumbbell curl',
-    data: 24
+    data: 24,
+    id: 'dpreq_2',
+    key: 'Dumbbell curl'
   },
   {
-    key: 'Hammer curl',
-    data: 22
+    data: 22,
+    id: 'dpreq_3',
+    key: 'Hammer curl'
   },
   {
-    key: 'Concentration curl',
-    data: 20
+    data: 20,
+    id: 'dpreq_4',
+    key: 'Concentration curl'
   },
   {
-    key: 'Dumbbell flies',
-    data: 18
+    data: 18,
+    id: 'dpreq_5',
+    key: 'Dumbbell flies'
   },
   {
-    key: 'Deadlift',
-    data: 230
+    data: 230,
+    id: 'dpreq_6',
+    key: 'Deadlift'
   },
   {
-    key: 'Bench press',
-    data: 120
+    data: 120,
+    id: 'dpreq_7',
+    key: 'Bench press'
   },
   {
-    key: 'Triceps extension',
-    data: 22
+    data: 22,
+    id: 'dpreq_8',
+    key: 'Triceps extension'
   },
   {
-    key: 'Triceps Pushdown',
-    data: 32
+    data: 32,
+    id: 'dpreq_9',
+    key: 'Triceps Pushdown'
   }
 ]

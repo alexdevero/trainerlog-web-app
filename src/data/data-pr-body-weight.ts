@@ -1,46 +1,57 @@
 export const dataPrBodyWeight = [
   {
-    key: 'Muscle-up',
-    data: 25
+    data: 25,
+    id: 'dprbw_1',
+    key: 'Muscle-up'
   },
   {
-    key: 'Chin-up',
-    data: 44
+    data: 44,
+    id: 'dprbw_2',
+    key: 'Chin-up'
   },
   {
-    key: 'Pull-up',
-    data: 39
+    data: 39,
+    id: 'dprbw_3',
+    key: 'Pull-up'
   },
   {
-    key: 'Dips',
-    data: 45
+    data: 45,
+    id: 'dprbw_4',
+    key: 'Dips'
   },
   {
-    key: 'Korean dips',
-    data: 35
+    data: 35,
+    id: 'dprbw_5',
+    key: 'Korean dips'
   },
   {
-    key: 'Push-up',
-    data: 35
+    data: 35,
+    id: 'dprbw_6',
+    key: 'Push-up'
   },
   {
-    key: 'Squat',
-    data: 55
+    data: 55,
+    id: 'dprbw_7',
+    key: 'Squat'
   },
   {
-    key: 'Pistol squat',
-    data: 23
+    data: 23,
+    id: 'dprbw_8',
+    key: 'Pistol squat'
   },
   {
-    key: 'Knee raises',
-    data: 68
+    data: 68,
+    id: 'dprbw_9',
+    key: 'Knee raises'
   },
   {
-    key: 'Dragon flag',
-    data: 72
+    data: 72,
+    id: 'dprbw_10',
+    key: 'Dragon flag'
   },
   {
-    key: 'Box jumps',
-    data: 23
+    data: 23,
+    id: 'dprbw_11',
+    key: 'Box jumps'
   }
 ]
