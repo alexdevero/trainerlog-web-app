@@ -2,13 +2,9 @@ import * as React from 'react'
 import Table from 'react-bootstrap/Table'
 import Dropdown from 'react-bootstrap/Dropdown'
 
-import { HeadingH6 } from './../../components/typography'
-
 export const TableCaloricIntake = () => (
   <>
-    <HeadingH6 style={{ marginBottom: 12 }}>Caloric intake</HeadingH6>
-
-    <Table hover responsive>
+    <Table hover responsive style={{ marginTop: 12 }}>
       <thead style={{ fontSize: 13 }}>
         <tr>
           <th>#</th>

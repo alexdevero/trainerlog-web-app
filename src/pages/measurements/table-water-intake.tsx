@@ -7,9 +7,7 @@ import { HeadingH6 } from './../../components/typography'
 
 export const TableWaterIntake = () => (
   <>
-    <HeadingH6 style={{ marginBottom: 12 }}>Water intake</HeadingH6>
-
-    <Table hover responsive>
+    <Table hover responsive style={{ marginTop: 12 }}>
       <thead style={{ fontSize: 13 }}>
         <tr>
           <th>#</th>

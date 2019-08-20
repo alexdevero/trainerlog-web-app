@@ -4,15 +4,12 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import moment from 'moment'
 
 import { SettingsStore } from './../../stores/store-settings'
-import { HeadingH6 } from './../../components/typography'
 
 import { dataBodyWeight } from './../../data/data-body-weight'
 
 export const TableBodyweight = () => (
   <>
-    <HeadingH6 style={{ marginBottom: 12 }}>Bodyweight</HeadingH6>
-
-    <Table hover responsive>
+    <Table hover responsive style={{ marginTop: 12 }}>
       <thead style={{ fontSize: 13 }}>
         <tr>
           <th>#</th>

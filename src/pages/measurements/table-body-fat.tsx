@@ -3,15 +3,11 @@ import Table from 'react-bootstrap/Table'
 import Dropdown from 'react-bootstrap/Dropdown'
 import moment from 'moment'
 
-import { HeadingH6 } from './../../components/typography'
-
 import { dataBodyFat } from './../../data/data-body-fat'
 
 export const TableBodyFat = () => (
   <>
-    <HeadingH6 style={{ marginBottom: 12 }}>Body fat %</HeadingH6>
-
-    <Table hover responsive>
+    <Table hover responsive style={{ marginTop: 12 }}>
       <thead style={{ fontSize: 13 }}>
         <tr>
           <th>#</th>
