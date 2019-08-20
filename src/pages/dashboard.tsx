@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-import { BarChart, LineChart } from 'reaviz'
+import { BarChart, LineChart, ChartZoomPan } from 'reaviz'
 
 // import 'reaviz/dist/index.css'
 
@@ -76,6 +76,7 @@ const Dashboard = () => {
                 data={dataBodyWeight}
                 height={350}
                 // width={250}
+                zoomPan={<ChartZoomPan />}
               />
             </GridCol>
           )}
@@ -88,6 +89,7 @@ const Dashboard = () => {
                 data={dataBodyFat}
                 height={350}
                 // width={250}
+                zoomPan={<ChartZoomPan />}
               />
             </GridCol>
           )}
