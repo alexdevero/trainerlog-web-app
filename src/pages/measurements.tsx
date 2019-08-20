@@ -7,7 +7,7 @@ import Tabs from 'react-bootstrap/Tabs'
 import { HeadingH5 } from './../components/typography'
 import { TableBodyFat } from './measurements/table-body-fat'
 import { TableBodyWater } from './measurements/table-body-water'
-import { TableBodyweight } from './measurements/table-bodyweight'
+import { TableBodyWeight } from './measurements/table-body-weight'
 import { TableCaloricIntake } from './measurements/table-caloric-intake'
 import { TableMuscleMass } from './measurements/table-muscle-mass'
 import { TableWaterIntake } from './measurements/table-water-intake'
@@ -35,7 +35,7 @@ const Measurements = () => {
 
         <Tabs id="controlled-tab" activeKey={activeTab} onSelect={(k: string) => setActiveTab(k)}>
           <Tab eventKey="bodyweight" title="Bodyweight">
-            <TableBodyweight />
+            <TableBodyWeight />
           </Tab>
           <Tab eventKey="muscleMass" title="Muscle Mass">
             <TableMuscleMass />

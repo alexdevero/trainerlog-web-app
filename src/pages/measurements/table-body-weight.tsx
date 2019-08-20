@@ -7,7 +7,7 @@ import { SettingsStore } from './../../stores/store-settings'
 
 import { dataBodyWeight } from './../../data/data-body-weight'
 
-export const TableBodyweight = () => (
+export const TableBodyWeight = () => (
   <>
     <Table hover responsive style={{ marginTop: 12 }}>
       <thead style={{ fontSize: 13 }}>
