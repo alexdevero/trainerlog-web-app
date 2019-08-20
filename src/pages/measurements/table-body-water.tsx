@@ -1,6 +1,9 @@
 import * as React from 'react'
 import Table from 'react-bootstrap/Table'
 import Dropdown from 'react-bootstrap/Dropdown'
+import moment from 'moment'
+
+import { dataBodyWater } from './../../data/data-body-water'
 
 export const TableBodyWater = () => (
   <>
@@ -15,41 +18,27 @@ export const TableBodyWater = () => (
       </thead>
 
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>11.01.2019</td>
-          <td>33.9</td>
-          <td>
-            <Dropdown alignRight>
-              <Dropdown.Toggle style={{ padding: 0, background: 'transparent', border: 'none' }} variant="light" id="dropdown-basic">
-                More
-              </Dropdown.Toggle>
+        {dataBodyWater.map((item, index: number) => {
+          return (
+            <tr key={item.id}>
+              <td>{index + 1}</td>
+              <td>{moment(item.key).format('DD. MM. YYYY')}</td>
+              <td>{Number.parseFloat('' + item.data).toFixed(2)}</td>
+              <td>
+                <Dropdown alignRight>
+                  <Dropdown.Toggle style={{ padding: 0, background: 'transparent', border: 'none' }} variant="light" id="dropdown-basic">
+                    More
+                  </Dropdown.Toggle>
 
-              <Dropdown.Menu>
-                <Dropdown.Item>Edit</Dropdown.Item>
-                <Dropdown.Item>Delete</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </td>
-        </tr>
-
-        <tr>
-          <td>2</td>
-          <td>18.01.2019</td>
-          <td>33.7</td>
-          <td>
-            <Dropdown alignRight>
-              <Dropdown.Toggle style={{ padding: 0, background: 'transparent', border: 'none' }} variant="light" id="dropdown-basic">
-                More
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item>Edit</Dropdown.Item>
-                <Dropdown.Item>Delete</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </td>
-        </tr>
+                  <Dropdown.Menu>
+                    <Dropdown.Item>Edit</Dropdown.Item>
+                    <Dropdown.Item>Delete</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </td>
+            </tr>
+          )
+        })}
       </tbody>
     </Table>
   </>
