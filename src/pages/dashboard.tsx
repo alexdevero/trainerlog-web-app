@@ -17,6 +17,13 @@ import { dataPrBodyWeight } from './../data/data-pr-body-weight'
 import { dataPrEquipment } from './../data/data-pr-equipment'
 import { dataBodyWeight } from './../data/data-body-weight'
 
+const SettingsButtonWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  margin-bottom: 16px;
+`
+
 const SettingsButton = styled.button`
   padding: 0;
   font-size: 18px;
@@ -27,11 +34,28 @@ const SettingsButton = styled.button`
   transition: color .25s ease-out;
 
   &:hover {
-    color: #eee;
+    color: #ccc;
   }
 
   &:focus {
     outline: 0;
+  }
+`
+
+const DashboardRow = styled(GridRow)`
+  h5 {
+    text-align: center;
+  }
+
+  & > div:nth-of-type(n+2) {
+    margin-top: 32px;
+  }
+
+  @media (min-width: 768px) {
+    & > div:nth-of-type(1),
+    & > div:nth-of-type(2) {
+      margin-top: 0;
+    }
   }
 `
 
@@ -49,27 +73,27 @@ const Dashboard = () => {
         <title>Dashboard | TrainerLog</title>
       </Helmet>
 
-      <View>
-        <div style={{ display: 'flex', alignItems: 'flex-end', flexDirection: 'column' }}>
-          <SettingsButton onClick={() => setSettingsVisible(!isSettingsVisible)}><span className="fas fa-cog" title="Dashboard settings" /></SettingsButton>
-        </div>
+      <SettingsButtonWrapper>
+        <SettingsButton onClick={() => setSettingsVisible(!isSettingsVisible)}><span className="fas fa-cog" title="Dashboard settings" /></SettingsButton>
+      </SettingsButtonWrapper>
 
-        {isSettingsVisible && (
-          <DashboardSettings
-            isBodyFatGraphVisible={isBodyFatGraphVisible}
-            isBodyWeightGraphVisible={isBodyWeightGraphVisible}
-            isPrEquipmentGraphVisible={isPrEquipmentGraphVisible}
-            isPrWeightGraphVisible={isPrWeightGraphVisible}
-            setBodyFatGraphVisible={() => setBodyFatGraphVisible(!isBodyFatGraphVisible)}
-            setBodyWeightGraphVisible={() => setBodyWeightGraphVisible(!isBodyWeightGraphVisible)}
-            setPrEquipmentGraphVisible={() => setPrEquipmentGraphVisible(!isPrEquipmentGraphVisible)}
-            setPrWeightGraphVisible={() => setPrWeightGraphVisible(!isPrWeightGraphVisible)}
-          />
-        )}
+      {isSettingsVisible && (
+        <DashboardSettings
+          isBodyFatGraphVisible={isBodyFatGraphVisible}
+          isBodyWeightGraphVisible={isBodyWeightGraphVisible}
+          isPrEquipmentGraphVisible={isPrEquipmentGraphVisible}
+          isPrWeightGraphVisible={isPrWeightGraphVisible}
+          setBodyFatGraphVisible={() => setBodyFatGraphVisible(!isBodyFatGraphVisible)}
+          setBodyWeightGraphVisible={() => setBodyWeightGraphVisible(!isBodyWeightGraphVisible)}
+          setPrEquipmentGraphVisible={() => setPrEquipmentGraphVisible(!isPrEquipmentGraphVisible)}
+          setPrWeightGraphVisible={() => setPrWeightGraphVisible(!isPrWeightGraphVisible)}
+        />
+      )}
 
-        <GridRow>
-          {isBodyWeightGraphVisible && (
-            <GridCol md={6}>
+      <DashboardRow>
+        {isBodyWeightGraphVisible && (
+          <GridCol md={6}>
+            <View>
               <HeadingH5>Your weight</HeadingH5>
 
               <LineChart
@@ -78,11 +102,13 @@ const Dashboard = () => {
                 // width={250}
                 zoomPan={<ChartZoomPan />}
               />
-            </GridCol>
-          )}
+            </View>
+          </GridCol>
+        )}
 
-          {isBodyFatGraphVisible && (
-            <GridCol md={6}>
+        {isBodyFatGraphVisible && (
+          <GridCol md={6}>
+            <View>
               <HeadingH5>Your body fat %</HeadingH5>
 
               <LineChart
@@ -91,11 +117,13 @@ const Dashboard = () => {
                 // width={250}
                 zoomPan={<ChartZoomPan />}
               />
-            </GridCol>
-          )}
+            </View>
+          </GridCol>
+        )}
 
-          {isPrEquipmentGraphVisible && (
-            <GridCol md={6}>
+        {isPrEquipmentGraphVisible && (
+          <GridCol md={6}>
+            <View>
               <HeadingH5>Your PRs (equipment)</HeadingH5>
 
               <BarChart
@@ -104,11 +132,13 @@ const Dashboard = () => {
                 // width={350}
                 // gridlines={<GridlineSeries />}
               />
-            </GridCol>
-          )}
+            </View>
+          </GridCol>
+        )}
 
-          {isPrWeightGraphVisible && (
-            <GridCol md={6}>
+        {isPrWeightGraphVisible && (
+          <GridCol md={6}>
+            <View>
               <HeadingH5>Your PRs (body weight)</HeadingH5>
 
               <BarChart
@@ -117,10 +147,10 @@ const Dashboard = () => {
                 // width={350}
                 // gridlines={<GridlineSeries />}
               />
-            </GridCol>
-          )}
-        </GridRow>
-      </View>
+            </View>
+          </GridCol>
+        )}
+      </DashboardRow>
     </>
   )
 }
