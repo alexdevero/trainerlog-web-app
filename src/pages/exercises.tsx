@@ -10,6 +10,13 @@ import { ExercisesTable } from './../pages/exercises/exercises-table'
 
 import { ExercisesFilterStore } from '../stores/store-exercises-filter'
 
+const FilterButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+`
+
 const FilterButton = styled.button`
   padding: 0;
   font-size: 18px;
@@ -20,7 +27,7 @@ const FilterButton = styled.button`
   transition: color .25s ease-out;
 
   &:hover {
-    color: #eee;
+    color: #ccc;
   }
 
   &:focus {
@@ -87,6 +94,10 @@ const Exercises = () => {
         <title>Exercises Library | TrainerLog</title>
       </Helmet>
 
+      <FilterButtonWrapper>
+        <FilterButton onClick={() => setFilterOpen(!filterOpen)}><span className="fas fa-filter" title="Open filter" /></FilterButton>
+      </FilterButtonWrapper>
+
       <View>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <HeadingH5 style={{ marginTop: 0, marginBottom: 0 }}>
@@ -96,8 +107,6 @@ const Exercises = () => {
               💪
             </span>
           </HeadingH5>
-
-          <FilterButton onClick={() => setFilterOpen(!filterOpen)}><span className="fas fa-filter" title="Open filter" /></FilterButton>
         </div>
 
         {filterOpen && <ExercisesFilter filterOptions={filterOptions} handleFilterChange={handleFilterChange} />}
