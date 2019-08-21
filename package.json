@@ -34,7 +34,7 @@
     "react-router-dom": "5.0.1",
     "react-toastify": "^5.3.2",
     "react-vis": "^1.11.7",
-    "reaviz": "2.4.10",
+    "reaviz": "2.7.0",
     "styled-components": "4.3.2"
   },
   "devDependencies": {
