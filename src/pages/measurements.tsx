@@ -30,6 +30,10 @@ const TabWrapper = styled.div`
   .nav-link.active {
     font-weight: 700;
   }
+
+  .table-responsive {
+    max-height: 560px;
+  }
 `
 
 const Measurements = () => {
