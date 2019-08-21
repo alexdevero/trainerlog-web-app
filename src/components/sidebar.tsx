@@ -200,7 +200,7 @@ const Sidebar = (props: SidebarInterface) => {
               }}
             />
             {' '}
-            <span>TrainerLog</span>
+            <span>Trainr</span>
           </SidebarLogo>
 
           <ul>
