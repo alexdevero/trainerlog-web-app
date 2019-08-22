@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { Fieldset, Checkbox } from './../../components/form-elements'
 import { GridCol, GridRow } from './../../components/grid'
+import { Button } from './../../components/button'
 
 interface ExercisesFilterInterface {
   filterOptions: {
@@ -23,7 +24,8 @@ interface ExercisesFilterInterface {
     showTraps: boolean;
     showTriceps: boolean;
   };
-  handleFilterChange: (filter: string) => void;
+  handleFilterBtnClick: () => void;
+  handleCheckboxClick: (event: React.MouseEvent, label: string) => void;
 }
 
 const ExercisesFilterRow = styled(GridRow)`
@@ -63,7 +65,7 @@ export const ExercisesFilter = (props: ExercisesFilterInterface) => {
             checked={props.filterOptions.showAll}
             id="app-theme"
             label="Show all"
-            onChange={() => props.handleFilterChange('showAll')}
+            onChange={(event) => props.handleCheckboxClick(event, 'showAll')}
           />
         </Fieldset>
       </GridCol>
@@ -74,7 +76,7 @@ export const ExercisesFilter = (props: ExercisesFilterInterface) => {
             checked={props.filterOptions.showBiceps}
             id="app-theme"
             label="Show biceps"
-            onChange={() => props.handleFilterChange('showBiceps')}
+            onChange={(event) => props.handleCheckboxClick(event, 'showBiceps')}
           />
         </Fieldset>
       </GridCol>
@@ -85,7 +87,7 @@ export const ExercisesFilter = (props: ExercisesFilterInterface) => {
             checked={props.filterOptions.showTriceps}
             id="app-theme"
             label="Show triceps"
-            onChange={() => props.handleFilterChange('showTriceps')}
+            onChange={(event) => props.handleCheckboxClick(event, 'showTriceps')}
           />
         </Fieldset>
       </GridCol>
@@ -96,7 +98,7 @@ export const ExercisesFilter = (props: ExercisesFilterInterface) => {
             checked={props.filterOptions.showAbs}
             id="app-theme"
             label="Show abs"
-            onChange={() => props.handleFilterChange('showAbs')}
+            onChange={(event) => props.handleCheckboxClick(event, 'showAbs')}
           />
         </Fieldset>
       </GridCol>
@@ -107,7 +109,7 @@ export const ExercisesFilter = (props: ExercisesFilterInterface) => {
             checked={props.filterOptions.showForearms}
             id="app-theme"
             label="Show forearms"
-            onChange={() => props.handleFilterChange('showForearms')}
+            onChange={(event) => props.handleCheckboxClick(event, 'showForearms')}
           />
         </Fieldset>
       </GridCol>
@@ -118,7 +120,7 @@ export const ExercisesFilter = (props: ExercisesFilterInterface) => {
             checked={props.filterOptions.showNeck}
             id="app-theme"
             label="Show neck"
-            onChange={() => props.handleFilterChange('showNeck')}
+            onChange={(event) => props.handleCheckboxClick(event, 'showNeck')}
           />
         </Fieldset>
       </GridCol>
@@ -129,7 +131,7 @@ export const ExercisesFilter = (props: ExercisesFilterInterface) => {
             checked={props.filterOptions.showShoulders}
             id="app-theme"
             label="Show shoulders"
-            onChange={() => props.handleFilterChange('showShoulders')}
+            onChange={(event) => props.handleCheckboxClick(event, 'showShoulders')}
           />
         </Fieldset>
       </GridCol>
@@ -140,7 +142,7 @@ export const ExercisesFilter = (props: ExercisesFilterInterface) => {
             checked={props.filterOptions.showTraps}
             id="app-theme"
             label="Show traps"
-            onChange={() => props.handleFilterChange('showTraps')}
+            onChange={(event) => props.handleCheckboxClick(event, 'showTraps')}
           />
         </Fieldset>
       </GridCol>
@@ -151,7 +153,7 @@ export const ExercisesFilter = (props: ExercisesFilterInterface) => {
             checked={props.filterOptions.showLats}
             id="app-theme"
             label="Show lats"
-            onChange={() => props.handleFilterChange('showLats')}
+            onChange={(event) => props.handleCheckboxClick(event, 'showLats')}
           />
         </Fieldset>
       </GridCol>
@@ -162,7 +164,7 @@ export const ExercisesFilter = (props: ExercisesFilterInterface) => {
             checked={props.filterOptions.showLowerBack}
             id="app-theme"
             label="Show lower back"
-            onChange={() => props.handleFilterChange('showLowerBack')}
+            onChange={(event) => props.handleCheckboxClick(event, 'showLowerBack')}
           />
         </Fieldset>
       </GridCol>
@@ -173,7 +175,7 @@ export const ExercisesFilter = (props: ExercisesFilterInterface) => {
             checked={props.filterOptions.showMiddleBack}
             id="app-theme"
             label="Show middle back"
-            onChange={() => props.handleFilterChange('showMiddleBack')}
+            onChange={(event) => props.handleCheckboxClick(event, 'showMiddleBack')}
           />
         </Fieldset>
       </GridCol>
@@ -184,7 +186,7 @@ export const ExercisesFilter = (props: ExercisesFilterInterface) => {
             checked={props.filterOptions.showChest}
             id="app-theme"
             label="Show chest"
-            onChange={() => props.handleFilterChange('showChest')}
+            onChange={(event) => props.handleCheckboxClick(event, 'showChest')}
           />
         </Fieldset>
       </GridCol>
@@ -195,7 +197,7 @@ export const ExercisesFilter = (props: ExercisesFilterInterface) => {
             checked={props.filterOptions.showGlutes}
             id="app-theme"
             label="Show glutes"
-            onChange={() => props.handleFilterChange('showGlutes')}
+            onChange={(event) => props.handleCheckboxClick(event, 'showGlutes')}
           />
         </Fieldset>
       </GridCol>
@@ -206,7 +208,7 @@ export const ExercisesFilter = (props: ExercisesFilterInterface) => {
             checked={props.filterOptions.showQuadriceps}
             id="app-theme"
             label="Show quadriceps"
-            onChange={() => props.handleFilterChange('showQuadriceps')}
+            onChange={(event) => props.handleCheckboxClick(event, 'showQuadriceps')}
           />
         </Fieldset>
       </GridCol>
@@ -217,7 +219,7 @@ export const ExercisesFilter = (props: ExercisesFilterInterface) => {
             checked={props.filterOptions.showCalves}
             id="app-theme"
             label="Show calves"
-            onChange={() => props.handleFilterChange('showCalves')}
+            onChange={(event) => props.handleCheckboxClick(event, 'showCalves')}
           />
         </Fieldset>
       </GridCol>
@@ -228,9 +230,13 @@ export const ExercisesFilter = (props: ExercisesFilterInterface) => {
             checked={props.filterOptions.showCardio}
             id="app-theme"
             label="Show cardio"
-            onChange={() => props.handleFilterChange('showCardio')}
+            onChange={(event) => props.handleCheckboxClick(event, 'showCardio')}
           />
         </Fieldset>
+      </GridCol>
+
+      <GridCol sm={12}>
+        <Button primary style={{ minWidth: 120 }} onClick={props.handleFilterBtnClick}>Filter</Button>
       </GridCol>
     </ExercisesFilterRow>
   )
