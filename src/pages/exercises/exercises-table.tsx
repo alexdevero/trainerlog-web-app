@@ -3,6 +3,8 @@ import Table from 'react-bootstrap/Table'
 import Dropdown from 'react-bootstrap/Dropdown'
 import styled from 'styled-components'
 
+import { ExercisesFilterStoreInterface } from './../../stores/store-exercises-filter'
+
 // import { ExercisesAbsStore } from './../../stores/store-exercises-abs'
 // import { ExercisesBicepsStore } from './../../stores/store-exercises-biceps'
 // import { ExercisesTricepsStore } from './../../stores/store-exercises-triceps'
@@ -19,9 +21,8 @@ import styled from 'styled-components'
 // import { ExercisesShouldersStore } from './../../stores/store-exercises-shoulders'
 import { ExercisesCardioStore } from './../../stores/store-exercises-cardio'
 
-import { ExercisesFilterStoreInterface } from './../../stores/store-exercises-filter'
-
 interface ExercisesTableInterface {
+  exercises: any;
   filterOptions: ExercisesFilterStoreInterface;
 }
 
@@ -78,6 +79,11 @@ export const ExercisesTable = (props: ExercisesTableInterface) => {
       </thead>
 
       <tbody>
+        {/* props.exercises.map((exercisesSet: any) => {
+          exercisesSet.map((exerciseObj: any) => {
+            console.log(exercisesSet)
+          })
+        })*/ props.exercises !== undefined && props.exercises.forEach((foo: any) => console.log(foo))}
         {exercisesArray.map((exercise: ExercisesArrayInterface, index: number) => {
           return (
             <tr key={exercise.id}>

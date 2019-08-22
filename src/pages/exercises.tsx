@@ -10,6 +10,22 @@ import { ExercisesTable } from './../pages/exercises/exercises-table'
 
 import { ExercisesFilterStore } from '../stores/store-exercises-filter'
 
+import { ExercisesAbsStore } from './../stores/store-exercises-abs'
+import { ExercisesBicepsStore } from './../stores/store-exercises-biceps'
+import { ExercisesCalvesStore } from './../stores/store-exercises-calves'
+import { ExercisesCardioStore } from './../stores/store-exercises-cardio'
+import { ExercisesForearmsStore } from './../stores/store-exercises-forearms'
+import { ExercisesGlutesStore } from './../stores/store-exercises-glutes'
+import { ExercisesChestStore } from './../stores/store-exercises-chest'
+import { ExercisesLatsStore } from './../stores/store-exercises-lats'
+import { ExercisesLowerBackStore } from './../stores/store-exercises-lower-back'
+import { ExercisesMiddleBackStore } from './../stores/store-exercises-middle-back'
+import { ExercisesNeckStore } from './../stores/store-exercises-neck'
+import { ExercisesQuadricepsStore } from './../stores/store-exercises-quadriceps'
+import { ExercisesShouldersStore } from './../stores/store-exercises-shoulders'
+import { ExercisesTrapsStore } from './../stores/store-exercises-traps'
+import { ExercisesTricepsStore } from './../stores/store-exercises-triceps'
+
 const FilterButtonWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -43,9 +59,9 @@ const Exercises = () => {
     showBiceps: ExercisesFilterStore.showBiceps,
     showCalves: ExercisesFilterStore.showCalves,
     showCardio: ExercisesFilterStore.showCardio,
+    showChest: ExercisesFilterStore.showChest,
     showForearms: ExercisesFilterStore.showForearms,
     showGlutes: ExercisesFilterStore.showGlutes,
-    showChest: ExercisesFilterStore.showChest,
     showLats: ExercisesFilterStore.showLats,
     showLowerBack: ExercisesFilterStore.showLowerBack,
     showMiddleBack: ExercisesFilterStore.showMiddleBack,
@@ -55,6 +71,70 @@ const Exercises = () => {
     showTraps: ExercisesFilterStore.showTraps,
     showTriceps: ExercisesFilterStore.showTriceps
   })
+  const [exercises, setExercises] = React.useState()
+
+  React.useEffect(() => {
+    let filteredExercises: any = []
+
+    Object.keys(filterOptions).forEach((key, value) => {
+      if (Object.values(filterOptions)[value]) {
+        switch (key) {
+          case 'showAbs':
+            filteredExercises.push(ExercisesAbsStore)
+            break
+          case 'showAll':
+            filteredExercises.push()
+            break
+          case 'showBiceps':
+            filteredExercises.push(ExercisesBicepsStore)
+            break
+          case 'showCalves':
+            filteredExercises.push(ExercisesCalvesStore)
+            break
+          case 'showCardio':
+            filteredExercises.push(ExercisesCardioStore)
+            break
+          case 'showForearms':
+            filteredExercises.push(ExercisesForearmsStore)
+            break
+          case 'showGlutes':
+            filteredExercises.push(ExercisesGlutesStore)
+            break
+          case 'showChest':
+            filteredExercises.push(ExercisesChestStore)
+            break
+          case 'showLats':
+            filteredExercises.push(ExercisesLatsStore)
+            break
+          case 'showLowerBack':
+            filteredExercises.push(ExercisesLowerBackStore)
+            break
+          case 'showMiddleBack':
+            filteredExercises.push(ExercisesMiddleBackStore)
+            break
+          case 'showNeck':
+            filteredExercises.push(ExercisesNeckStore)
+            break
+          case 'showQuadriceps':
+            filteredExercises.push(ExercisesQuadricepsStore)
+            break
+          case 'showShoulders':
+            filteredExercises.push(ExercisesShouldersStore)
+            break
+          case 'showTraps':
+            filteredExercises.push(ExercisesTrapsStore)
+            break
+          case 'showTriceps':
+            filteredExercises.push(ExercisesTricepsStore)
+            break
+          default:
+            break
+        }
+      }
+
+      setExercises([...filteredExercises])
+    })
+  }, [filterOptions])
 
   const handleFilterChange = (filter: string) => {
     if (filter === 'showAll') {
@@ -64,9 +144,9 @@ const Exercises = () => {
         showBiceps: false,
         showCalves: false,
         showCardio: false,
+        showChest: false,
         showForearms: false,
         showGlutes: false,
-        showChest: false,
         showLats: false,
         showLowerBack: false,
         showMiddleBack: false,
@@ -111,7 +191,7 @@ const Exercises = () => {
 
         {filterOpen && <ExercisesFilter filterOptions={filterOptions} handleFilterChange={handleFilterChange} />}
 
-        <ExercisesTable filterOptions={filterOptions} />
+        <ExercisesTable exercises={exercises} filterOptions={filterOptions} />
       </View>
     </>
   )
