@@ -5,22 +5,6 @@ import styled from 'styled-components'
 
 import { ExercisesFilterStoreInterface } from './../../stores/store-exercises-filter'
 
-// import { ExercisesAbsStore } from './../../stores/store-exercises-abs'
-// import { ExercisesBicepsStore } from './../../stores/store-exercises-biceps'
-// import { ExercisesTricepsStore } from './../../stores/store-exercises-triceps'
-// import { ExercisesChestStore } from './../../stores/store-exercises-chest'
-// import { ExercisesQuadricepsStore } from './../../stores/store-exercises-quadriceps'
-// import { ExercisesCalvesStore } from './../../stores/store-exercises-calves'
-// import { ExercisesNeckStore } from './../../stores/store-exercises-neck'
-// import { ExercisesTrapsStore } from './../../stores/store-exercises-traps'
-// import { ExercisesLatsStore } from './../../stores/store-exercises-lats'
-// import { ExercisesMiddleBackStore } from './../../stores/store-exercises-middle-back'
-// import { ExercisesLowerBackStore } from './../../stores/store-exercises-lower-back'
-// import { ExercisesGlutesStore } from './../../stores/store-exercises-glutes'
-// import { ExercisesForearmsStore } from './../../stores/store-exercises-forearms'
-// import { ExercisesShouldersStore } from './../../stores/store-exercises-shoulders'
-import { ExercisesCardioStore } from './../../stores/store-exercises-cardio'
-
 interface ExercisesTableInterface {
   exercises: any;
   filterOptions: ExercisesFilterStoreInterface;

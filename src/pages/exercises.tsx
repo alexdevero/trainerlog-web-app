@@ -156,38 +156,6 @@ const Exercises = () => {
     handleFilterBtnClick()
   }, [])
 
-  // const handleFilterChange = async (filter: string) => {
-  //   if (filter === 'showAll') {
-  //     setFilterOptions({
-  //       showAbs: false,
-  //       showAll: true,
-  //       showBiceps: false,
-  //       showCalves: false,
-  //       showCardio: false,
-  //       showChest: false,
-  //       showForearms: false,
-  //       showGlutes: false,
-  //       showLats: false,
-  //       showLowerBack: false,
-  //       showMiddleBack: false,
-  //       showNeck: false,
-  //       showQuadriceps: false,
-  //       showShoulders: false,
-  //       showTraps: false,
-  //       showTriceps: false
-  //     })
-  //   } else {
-  //     const filterOptionStateIndex = await Object.keys(filterOptions).findIndex((key) => key === filter)
-  //     const filterOptionOldValue = await Object.values(filterOptions)[filterOptionStateIndex]
-
-  //     setFilterOptions({
-  //       ...filterOptions,
-  //       showAll: false,
-  //       [filter]: !filterOptionOldValue
-  //     })
-  //   }
-  // }
-
   const handleCheckboxClick = (event: React.MouseEvent, label: string) => {
     if (label === 'showAll') {
       setFilterOptions({
