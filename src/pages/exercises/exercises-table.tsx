@@ -1,7 +1,8 @@
 import * as React from 'react'
+import styled from 'styled-components'
 import Table from 'react-bootstrap/Table'
 import Dropdown from 'react-bootstrap/Dropdown'
-import styled from 'styled-components'
+import Pagination from 'react-bootstrap/Pagination'
 
 import { ExercisesFilterStoreInterface } from './../../stores/store-exercises-filter'
 
@@ -29,6 +30,14 @@ const ExercisesTableEl = styled(Table)`
   .dropdown-item {
     font-size: 14px;
   }
+`
+
+const PaginationWrapper = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
 `
 
 export const ExercisesTable = (props: ExercisesTableInterface) => {
@@ -64,43 +73,61 @@ export const ExercisesTable = (props: ExercisesTableInterface) => {
   }, [props.exercises])
 
   return (
-    <ExercisesTableEl hover responsive>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Muscle</th>
-          <th>Equipment</th>
-          <th>Add. actions</th>
-        </tr>
-      </thead>
+    <>
+      <ExercisesTableEl hover responsive>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Muscle</th>
+            <th>Equipment</th>
+            <th>Add. actions</th>
+          </tr>
+        </thead>
 
-      <tbody>
-        {
-          exercises.map((exerciseSet: ExercisesArrayInterface, index: number) => {
-            return (
-              <tr key={exerciseSet.id}>
-                <td>{index + 1}</td>
-                <td>{exerciseSet.name}</td>
-                <td>{exerciseSet.muscle}</td>
-                <td>{exerciseSet.equipment}</td>
-                <td>
-                  <Dropdown alignRight>
-                    <Dropdown.Toggle style={{ padding: 0, background: 'transparent', border: 'none' }} variant="light" id="dropdown-basic">
-                      More
-                    </Dropdown.Toggle>
+        <tbody>
+          {
+            exercises.map((exerciseSet: ExercisesArrayInterface, index: number) => {
+              return (
+                <tr key={exerciseSet.id}>
+                  <td>{index + 1}</td>
+                  <td>{exerciseSet.name}</td>
+                  <td>{exerciseSet.muscle}</td>
+                  <td>{exerciseSet.equipment}</td>
+                  <td>
+                    <Dropdown alignRight>
+                      <Dropdown.Toggle style={{ padding: 0, background: 'transparent', border: 'none' }} variant="light" id="dropdown-basic">
+                        More
+                      </Dropdown.Toggle>
 
-                    <Dropdown.Menu>
-                      <Dropdown.Item>Info</Dropdown.Item>
-                      <Dropdown.Item>Favorite</Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
-                </td>
-              </tr>
-            )
-          })
-        }
-      </tbody>
-    </ExercisesTableEl>
+                      <Dropdown.Menu>
+                        <Dropdown.Item>Info</Dropdown.Item>
+                        <Dropdown.Item>Favorite</Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </td>
+                </tr>
+              )
+            })
+          }
+        </tbody>
+      </ExercisesTableEl>
+
+      <PaginationWrapper>
+        <Pagination>
+          <Pagination.First />
+          <Pagination.Prev />
+          <Pagination.Item active>{1}</Pagination.Item>
+          <Pagination.Item>{2}</Pagination.Item>
+          <Pagination.Item>{3}</Pagination.Item>
+          <Pagination.Item>{4}</Pagination.Item>
+          <Pagination.Ellipsis />
+
+          <Pagination.Item>{(Math.ceil(exercisesRest.length / 21))}</Pagination.Item>
+          <Pagination.Next />
+          <Pagination.Last />
+        </Pagination>
+      </PaginationWrapper>
+    </>
   )
 }
