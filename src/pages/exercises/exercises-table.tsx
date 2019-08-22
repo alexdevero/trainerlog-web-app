@@ -40,6 +40,17 @@ const PaginationWrapper = styled.div`
   margin-top: 18px;
 `
 
+const PaginationInput = styled.input.attrs(props => ({
+  type: 'text'
+}))`
+  padding: 0;
+  max-width: 25px;
+  font-size: 15px;
+  text-align: center;
+  background: transparent;
+  border: 1px solid #ddd;
+`
+
 export const ExercisesTable = (props: ExercisesTableInterface) => {
   // Exercises to show immediately
   const [exercises, setExercises] = React.useState<ExercisesArrayInterface[]>([])
@@ -121,6 +132,7 @@ export const ExercisesTable = (props: ExercisesTableInterface) => {
           <Pagination.Item>{2}</Pagination.Item>
           <Pagination.Item>{3}</Pagination.Item>
           <Pagination.Item>{4}</Pagination.Item>
+          <Pagination.Item><PaginationInput /></Pagination.Item>
           <Pagination.Ellipsis />
 
           <Pagination.Item>{(Math.ceil(exercisesRest.length / 21))}</Pagination.Item>
