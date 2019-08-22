@@ -40,7 +40,7 @@ export const ExercisesTable = (props: ExercisesTableInterface) => {
 
       Object.values(props.exercises).map((value: any, index: number, array: any[]) => {
         return value.map((exerciseSet: ExercisesArrayInterface, index: number) => {
-          if (index < 10) {
+          if (newState.length < 21) {
             newState.push(exerciseSet)
           }
         })
