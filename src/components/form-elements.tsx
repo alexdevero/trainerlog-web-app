@@ -76,7 +76,8 @@ interface CheckboxPropsInterface {
   id?: string;
   label?: string;
   name?: string;
-  onChange?: () => void;
+  // onChange?: () => void;
+  onChange?: (event?: any) => void;
 }
 
 const CheckboxContainer = styled.div`
