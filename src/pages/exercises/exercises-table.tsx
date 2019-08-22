@@ -32,21 +32,32 @@ const ExercisesTableEl = styled(Table)`
 `
 
 export const ExercisesTable = (props: ExercisesTableInterface) => {
+  // Exercises to show immediately
   const [exercises, setExercises] = React.useState<ExercisesArrayInterface[]>([])
+
+  // Exercises for pagination
+  const [exercisesRest, setExercisesRest] = React.useState<ExercisesArrayInterface[]>([])
 
   React.useEffect(() => {
     const generateExercises = async () => {
-      let newState: ExercisesArrayInterface[] = await []
+      let newExercisesState: ExercisesArrayInterface[] = await []
+      let newExercisesRestState: ExercisesArrayInterface[] = await []
 
       Object.values(props.exercises).map((value: any, index: number, array: any[]) => {
         return value.map((exerciseSet: ExercisesArrayInterface, index: number) => {
-          if (newState.length < 21) {
-            newState.push(exerciseSet)
+          if (newExercisesState.length < 21) {
+            newExercisesState.push(exerciseSet)
+          } else {
+            newExercisesRestState.push(exerciseSet)
           }
         })
       })
 
-      await setExercises(newState)
+      // Set exercises for pagination
+      await setExercisesRest(newExercisesRestState)
+
+      // Set exercises to show immediately
+      await setExercises(newExercisesState)
     }
 
     generateExercises()
