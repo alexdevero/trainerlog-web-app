@@ -48,23 +48,25 @@ const ExercisesTableEl = styled(Table)`
 `
 
 export const ExercisesTable = (props: ExercisesTableInterface) => {
-  const [exercisesArray, setExercisesArray] = React.useState<ExercisesArrayInterface[]>([])
+  const [exercises, setExercises] = React.useState<ExercisesArrayInterface[]>([])
 
   React.useEffect(() => {
     const generateExercises = async () => {
       let newState: ExercisesArrayInterface[] = await []
 
-      await ExercisesCardioStore.map((exercise, index) => {
-        if (index < 10) {
-          newState.push(exercise)
-        }
+      Object.values(props.exercises).map((value: any, index: number, array: any[]) => {
+        return value.map((exerciseSet: ExercisesArrayInterface, index: number) => {
+          if (index < 10) {
+            newState.push(exerciseSet)
+          }
+        })
       })
 
-      await setExercisesArray(newState)
+      await setExercises(newState)
     }
 
     generateExercises()
-  }, [])
+  }, [props.exercises])
 
   return (
     <ExercisesTableEl hover responsive>
@@ -79,33 +81,30 @@ export const ExercisesTable = (props: ExercisesTableInterface) => {
       </thead>
 
       <tbody>
-        {/* props.exercises.map((exercisesSet: any) => {
-          exercisesSet.map((exerciseObj: any) => {
-            console.log(exercisesSet)
-          })
-        })*/ props.exercises !== undefined && props.exercises.forEach((foo: any) => console.log(foo))}
-        {exercisesArray.map((exercise: ExercisesArrayInterface, index: number) => {
-          return (
-            <tr key={exercise.id}>
-              <td>{index + 1}</td>
-              <td>{exercise.name}</td>
-              <td>{exercise.muscle}</td>
-              <td>{exercise.equipment}</td>
-              <td>
-                <Dropdown alignRight>
-                  <Dropdown.Toggle style={{ padding: 0, background: 'transparent', border: 'none' }} variant="light" id="dropdown-basic">
-                    More
-                  </Dropdown.Toggle>
+        {
+          exercises.map((exerciseSet: ExercisesArrayInterface, index: number) => {
+            return (
+              <tr key={exerciseSet.id}>
+                <td>{index + 1}</td>
+                <td>{exerciseSet.name}</td>
+                <td>{exerciseSet.muscle}</td>
+                <td>{exerciseSet.equipment}</td>
+                <td>
+                  <Dropdown alignRight>
+                    <Dropdown.Toggle style={{ padding: 0, background: 'transparent', border: 'none' }} variant="light" id="dropdown-basic">
+                      More
+                    </Dropdown.Toggle>
 
-                  <Dropdown.Menu>
-                    <Dropdown.Item>Info</Dropdown.Item>
-                    <Dropdown.Item>Favorite</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </td>
-            </tr>
-          )
-        })}
+                    <Dropdown.Menu>
+                      <Dropdown.Item>Info</Dropdown.Item>
+                      <Dropdown.Item>Favorite</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </td>
+              </tr>
+            )
+          })
+        }
       </tbody>
     </ExercisesTableEl>
   )
