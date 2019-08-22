@@ -71,9 +71,9 @@ const Exercises = () => {
     showTraps: ExercisesFilterStore.showTraps,
     showTriceps: ExercisesFilterStore.showTriceps
   })
-  const [exercises, setExercises] = React.useState()
+  const [exercises, setExercises] = React.useState<{ equipment: string; id: string; muscle: string; name: string; }[][]>([ExercisesAbsStore])
 
-  React.useEffect(() => {
+  const handleFilterBtnClick = () => {
     let filteredExercises: any = []
 
     Object.keys(filterOptions).forEach((key, value) => {
@@ -83,7 +83,23 @@ const Exercises = () => {
             filteredExercises.push(ExercisesAbsStore)
             break
           case 'showAll':
-            filteredExercises.push()
+            filteredExercises.push(
+              ExercisesAbsStore,
+              ExercisesBicepsStore,
+              ExercisesCalvesStore,
+              ExercisesCardioStore,
+              ExercisesForearmsStore,
+              ExercisesGlutesStore,
+              ExercisesChestStore,
+              ExercisesLatsStore,
+              ExercisesLowerBackStore,
+              ExercisesMiddleBackStore,
+              ExercisesNeckStore,
+              ExercisesQuadricepsStore,
+              ExercisesShouldersStore,
+              ExercisesTrapsStore,
+              ExercisesTricepsStore
+            )
             break
           case 'showBiceps':
             filteredExercises.push(ExercisesBicepsStore)
@@ -134,10 +150,46 @@ const Exercises = () => {
 
       setExercises([...filteredExercises])
     })
-  }, [filterOptions])
+  }
 
-  const handleFilterChange = (filter: string) => {
-    if (filter === 'showAll') {
+  React.useEffect(() => {
+    handleFilterBtnClick()
+  }, [])
+
+  // const handleFilterChange = async (filter: string) => {
+  //   if (filter === 'showAll') {
+  //     setFilterOptions({
+  //       showAbs: false,
+  //       showAll: true,
+  //       showBiceps: false,
+  //       showCalves: false,
+  //       showCardio: false,
+  //       showChest: false,
+  //       showForearms: false,
+  //       showGlutes: false,
+  //       showLats: false,
+  //       showLowerBack: false,
+  //       showMiddleBack: false,
+  //       showNeck: false,
+  //       showQuadriceps: false,
+  //       showShoulders: false,
+  //       showTraps: false,
+  //       showTriceps: false
+  //     })
+  //   } else {
+  //     const filterOptionStateIndex = await Object.keys(filterOptions).findIndex((key) => key === filter)
+  //     const filterOptionOldValue = await Object.values(filterOptions)[filterOptionStateIndex]
+
+  //     setFilterOptions({
+  //       ...filterOptions,
+  //       showAll: false,
+  //       [filter]: !filterOptionOldValue
+  //     })
+  //   }
+  // }
+
+  const handleCheckboxClick = (event: React.MouseEvent, label: string) => {
+    if (label === 'showAll') {
       setFilterOptions({
         showAbs: false,
         showAll: true,
@@ -157,13 +209,13 @@ const Exercises = () => {
         showTriceps: false
       })
     } else {
-      const filterOptionStateIndex = Object.keys(filterOptions).findIndex((key) => key === filter)
+      const filterOptionStateIndex = Object.keys(filterOptions).findIndex((key) => key === label)
       const filterOptionOldValue = Object.values(filterOptions)[filterOptionStateIndex]
 
       setFilterOptions({
         ...filterOptions,
         showAll: false,
-        [filter]: !filterOptionOldValue
+        [label]: !filterOptionOldValue
       })
     }
   }
@@ -189,7 +241,13 @@ const Exercises = () => {
           </HeadingH5>
         </div>
 
-        {filterOpen && <ExercisesFilter filterOptions={filterOptions} handleFilterChange={handleFilterChange} />}
+        {filterOpen && (
+          <ExercisesFilter
+            filterOptions={filterOptions}
+            handleCheckboxClick={handleCheckboxClick}
+            handleFilterBtnClick={handleFilterBtnClick}
+          />
+        )}
 
         <ExercisesTable exercises={exercises} filterOptions={filterOptions} />
       </View>
