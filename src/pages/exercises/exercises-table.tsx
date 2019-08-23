@@ -2,9 +2,10 @@ import * as React from 'react'
 import styled from 'styled-components'
 import Table from 'react-bootstrap/Table'
 import Dropdown from 'react-bootstrap/Dropdown'
-import Pagination from 'react-bootstrap/Pagination'
 
 import { ExercisesFilterStoreInterface } from './../../stores/store-exercises-filter'
+
+import { ExercisesPagination } from './exercises-pagination'
 
 interface ExercisesTableInterface {
   exercises: any;
@@ -32,31 +33,14 @@ const ExercisesTableEl = styled(Table)`
   }
 `
 
-const PaginationWrapper = styled.div`
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: center;
-  margin-top: 18px;
-`
-
-const PaginationInput = styled.input.attrs(props => ({
-  type: 'text'
-}))`
-  padding: 0;
-  max-width: 25px;
-  font-size: 15px;
-  text-align: center;
-  background: transparent;
-  border: 1px solid #ddd;
-`
-
 export const ExercisesTable = (props: ExercisesTableInterface) => {
   // Exercises to show immediately
   const [exercises, setExercises] = React.useState<ExercisesArrayInterface[]>([])
 
   // Exercises for pagination
   const [exercisesForPagination, setExercisesForPagination] = React.useState<ExercisesArrayInterface[]>([])
+
+  const [activePage, setActivePage] = React.useState(1)
 
   React.useEffect(() => {
     const generateExercises = async () => {
@@ -82,6 +66,13 @@ export const ExercisesTable = (props: ExercisesTableInterface) => {
 
     generateExercises()
   }, [props.exercises])
+
+  const handlePageClick = (event: React.MouseEvent, pageNumber: number) => {
+    event.preventDefault()
+
+    console.log('pageNumber', pageNumber)
+    console.log(event.target)
+  }
 
   return (
     <>
@@ -124,22 +115,7 @@ export const ExercisesTable = (props: ExercisesTableInterface) => {
         </tbody>
       </ExercisesTableEl>
 
-      <PaginationWrapper>
-        <Pagination>
-          <Pagination.First />
-          <Pagination.Prev />
-          <Pagination.Item active>{1}</Pagination.Item>
-          <Pagination.Item>{2}</Pagination.Item>
-          <Pagination.Item>{3}</Pagination.Item>
-          <Pagination.Item>{4}</Pagination.Item>
-          <Pagination.Item><PaginationInput /></Pagination.Item>
-          <Pagination.Ellipsis />
-
-          <Pagination.Item>{(Math.ceil(exercisesForPagination.length / 21))}</Pagination.Item>
-          <Pagination.Next />
-          <Pagination.Last />
-        </Pagination>
-      </PaginationWrapper>
+      <ExercisesPagination activePage={activePage} exercisesForPagination={exercisesForPagination} handlePageClick={handlePageClick} />
     </>
   )
 }
