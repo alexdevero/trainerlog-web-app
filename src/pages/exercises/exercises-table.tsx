@@ -56,25 +56,25 @@ export const ExercisesTable = (props: ExercisesTableInterface) => {
   const [exercises, setExercises] = React.useState<ExercisesArrayInterface[]>([])
 
   // Exercises for pagination
-  const [exercisesRest, setExercisesRest] = React.useState<ExercisesArrayInterface[]>([])
+  const [exercisesForPagination, setExercisesForPagination] = React.useState<ExercisesArrayInterface[]>([])
 
   React.useEffect(() => {
     const generateExercises = async () => {
       let newExercisesState: ExercisesArrayInterface[] = await []
-      let newExercisesRestState: ExercisesArrayInterface[] = await []
+      let newExercisesForPaginationState: ExercisesArrayInterface[] = await []
 
       Object.values(props.exercises).map((value: any, index: number, array: any[]) => {
         return value.map((exerciseSet: ExercisesArrayInterface, index: number) => {
           if (newExercisesState.length < 21) {
             newExercisesState.push(exerciseSet)
           } else {
-            newExercisesRestState.push(exerciseSet)
+            newExercisesForPaginationState.push(exerciseSet)
           }
         })
       })
 
       // Set exercises for pagination
-      await setExercisesRest(newExercisesRestState)
+      await setExercisesForPagination(newExercisesForPaginationState)
 
       // Set exercises to show immediately
       await setExercises(newExercisesState)
@@ -135,7 +135,7 @@ export const ExercisesTable = (props: ExercisesTableInterface) => {
           <Pagination.Item><PaginationInput /></Pagination.Item>
           <Pagination.Ellipsis />
 
-          <Pagination.Item>{(Math.ceil(exercisesRest.length / 21))}</Pagination.Item>
+          <Pagination.Item>{(Math.ceil(exercisesForPagination.length / 21))}</Pagination.Item>
           <Pagination.Next />
           <Pagination.Last />
         </Pagination>
