@@ -194,10 +194,6 @@ const Exercises = () => {
         <title>Exercises Library | TrainerLog</title>
       </Helmet>
 
-      <FilterButtonWrapper>
-        <FilterButton onClick={() => setFilterOpen(!filterOpen)}><span className="fas fa-filter" title="Open filter" /></FilterButton>
-      </FilterButtonWrapper>
-
       <View>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <HeadingH5 style={{ marginTop: 0, marginBottom: 0 }}>
@@ -207,6 +203,10 @@ const Exercises = () => {
               💪
             </span>
           </HeadingH5>
+
+          <FilterButtonWrapper>
+            <FilterButton onClick={() => setFilterOpen(!filterOpen)}><span className="fas fa-filter" title="Open filter" /></FilterButton>
+          </FilterButtonWrapper>
         </div>
 
         {filterOpen && (
