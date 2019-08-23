@@ -150,6 +150,8 @@ const Exercises = () => {
 
       setExercises([...filteredExercises])
     })
+
+    setFilterOpen(false)
   }
 
   React.useEffect(() => {
