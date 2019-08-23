@@ -67,12 +67,18 @@ export const ExercisesTable = (props: ExercisesTableInterface) => {
     generateExercises()
   }, [props.exercises])
 
-  const handlePageClick = (event: React.MouseEvent, pageNumber: number) => {
+  const handlePageClick = async (event: React.MouseEvent, pageNumber: number) => {
     event.preventDefault()
 
     console.log('pageNumber', pageNumber)
-    console.log(event.target)
+    if (pageNumber !== activePage && pageNumber > 0 && pageNumber <= Math.ceil(exercisesForPagination.length / 21)) {
+      await setActivePage(pageNumber)
+    }
   }
+
+  React.useEffect(() => {
+    console.log('active page', activePage)
+  }, [activePage])
 
   return (
     <>

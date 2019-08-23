@@ -51,7 +51,7 @@ export const ExercisesPagination = (props: ExercisesPaginationInterface) => {
         )}
 
         {(Math.ceil(props.exercisesForPagination.length / 21)) >= 1 && (
-          <Pagination.Item onClick={(event: React.MouseEvent) => props.handlePageClick(event, 2)}>{(Math.ceil(props.exercisesForPagination.length / 21))}</Pagination.Item>
+          <Pagination.Item onClick={(event: React.MouseEvent) => props.handlePageClick(event, Math.ceil(props.exercisesForPagination.length / 21))}>{(Math.ceil(props.exercisesForPagination.length / 21))}</Pagination.Item>
         )}
         <Pagination.Next onClick={(event: React.MouseEvent) => props.handlePageClick(event, props.activePage + 1)} />
         <Pagination.Last onClick={(event: React.MouseEvent) => props.handlePageClick(event, Math.ceil(props.exercisesForPagination.length / 21))} />
