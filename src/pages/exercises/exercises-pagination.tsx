@@ -38,14 +38,14 @@ export const ExercisesPagination = (props: ExercisesPaginationInterface) => {
   return (
     <PaginationWrapper>
       <Pagination>
-        <Pagination.First onClick={(event: React.MouseEvent) => props.handlePageClick(event, 1)} />
-        <Pagination.Prev onClick={(event: React.MouseEvent) => props.handlePageClick(event, props.activePage - 1)} />
-        <Pagination.Item active onClick={(event: React.MouseEvent) => props.handlePageClick(event, 1)}>{1}</Pagination.Item>
+        <Pagination.First disabled={props.activePage === 1} onClick={(event: React.MouseEvent) => props.handlePageClick(event, 1)} />
+        <Pagination.Prev disabled={props.activePage === 1} onClick={(event: React.MouseEvent) => props.handlePageClick(event, props.activePage - 1)} />
+        <Pagination.Item active={props.activePage === 1} onClick={(event: React.MouseEvent) => props.handlePageClick(event, 1)}>{1}</Pagination.Item>
 
         {/* Create pagination for second page */}
         {(Math.ceil(props.exercisesForPagination.length / 21)) >= 1 && (
           <>
-            <Pagination.Item onClick={(event: React.MouseEvent) => props.handlePageClick(event, 2)}>{2}</Pagination.Item>
+            <Pagination.Item active={props.activePage === 2} onClick={(event: React.MouseEvent) => props.handlePageClick(event, 2)}>{2}</Pagination.Item>
           </>
         )}
 
@@ -54,14 +54,14 @@ export const ExercisesPagination = (props: ExercisesPaginationInterface) => {
           <>
             <Pagination.Ellipsis />
             {/* <Pagination.Item><PaginationInput /></Pagination.Item> */}
-            <Pagination.Item onClick={(event: React.MouseEvent) => props.handlePageClick(event, Math.ceil(props.exercisesForPagination.length / 21))}>
+            <Pagination.Item active={props.activePage === Math.ceil(props.exercisesForPagination.length / 21)} onClick={(event: React.MouseEvent) => props.handlePageClick(event, Math.ceil(props.exercisesForPagination.length / 21))}>
               {(Math.ceil(props.exercisesForPagination.length / 21))}
             </Pagination.Item>
           </>
         )}
 
-        <Pagination.Next onClick={(event: React.MouseEvent) => props.handlePageClick(event, props.activePage + 1)} />
-        <Pagination.Last onClick={(event: React.MouseEvent) => props.handlePageClick(event, Math.ceil(props.exercisesForPagination.length / 21))} />
+        <Pagination.Next disabled={props.activePage === Math.ceil(props.exercisesForPagination.length / 21)} onClick={(event: React.MouseEvent) => props.handlePageClick(event, props.activePage + 1)} />
+        <Pagination.Last disabled={props.activePage === Math.ceil(props.exercisesForPagination.length / 21)} onClick={(event: React.MouseEvent) => props.handlePageClick(event, Math.ceil(props.exercisesForPagination.length / 21))} />
       </Pagination>
     </PaginationWrapper>
   )
