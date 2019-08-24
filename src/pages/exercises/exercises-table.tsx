@@ -43,39 +43,39 @@ export const ExercisesTable = (props: ExercisesTableInterface) => {
 
   const [activePage, setActivePage] = React.useState(1)
 
-  React.useEffect(() => {
-    const generateExercises = async () => {
-      let newExercisesState: ExercisesArrayInterface[] = await []
-      let newExercisesForPaginationState: ExercisesArrayInterface[] = await []
+  const generateExercises = async () => {
+    let newExercisesState: ExercisesArrayInterface[] = await []
+    let newExercisesForPaginationState: ExercisesArrayInterface[] = await []
 
-      Object.values(props.exercises).map((value: any, index: number, array: any[]) => {
-        return value.map((exerciseSet: ExercisesArrayInterface, index: number) => {
-          if (newExercisesState.length < 21) {
-            newExercisesState.push(exerciseSet)
-          } else {
-            newExercisesForPaginationState.push(exerciseSet)
-          }
-        })
+    Object.values(props.exercises).map((value: any, index: number, array: any[]) => {
+      return value.map((exerciseSet: ExercisesArrayInterface, index: number) => {
+        if (newExercisesState.length < 21) {
+          newExercisesState.push(exerciseSet)
+        } else {
+          newExercisesForPaginationState.push(exerciseSet)
+        }
       })
+    })
 
-      // Set exercises for pagination
-      await setExercisesForPagination(newExercisesForPaginationState)
+    // Set exercises for pagination
+    await setExercisesForPagination(newExercisesForPaginationState)
 
-      // Set exercises to show immediately
-      await setExercises(newExercisesState)
+    // Set exercises to show immediately
+    await setExercises(newExercisesState)
 
-      // Create pagination object
-      // {pageNumber: [{exercise}, {exercise}, {exercise}, ...]}
-      for (let page = 1; page <= Math.ceil(newExercisesForPaginationState.length / 21); page++) {
-        // console.log(page, ':', )
-        for (let exercise = 1; exercise <= newExercisesForPaginationState.length; exercise++) {
-          if (exercise < page * 21) {
-            // setPagination({ page: exercise })
-          }
+    // Create pagination object
+    // {pageNumber: [{exercise}, {exercise}, {exercise}, ...]}
+    for (let page = 1; page <= Math.ceil(newExercisesForPaginationState.length / 21); page++) {
+      // console.log(page, ':', )
+      for (let exercise = 1; exercise <= newExercisesForPaginationState.length; exercise++) {
+        if (exercise < page * 21) {
+          // setPagination({ page: exercise })
         }
       }
     }
+  }
 
+  React.useEffect(() => {
     generateExercises()
   }, [props.exercises])
 
