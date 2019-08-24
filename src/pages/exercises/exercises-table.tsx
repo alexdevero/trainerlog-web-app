@@ -37,18 +37,30 @@ export const ExercisesTable = (props: ExercisesTableInterface) => {
   // Exercises to show immediately
   const [exercises, setExercises] = React.useState<ExercisesArrayInterface[]>([])
 
+  // Experimental
+  const [exercisesNewer, setExercisesNewer] = React.useState<ExercisesArrayInterface[]>([])
+  // Experimental
+
   // Exercises for pagination
   const [exercisesForPagination, setExercisesForPagination] = React.useState<ExercisesArrayInterface[]>([])
-  const [pagination, setPagination] = React.useState({})
 
+  // Handle active pages
   const [activePage, setActivePage] = React.useState(1)
 
   const generateExercises = async () => {
     let newExercisesState: ExercisesArrayInterface[] = await []
     let newExercisesForPaginationState: ExercisesArrayInterface[] = await []
 
+    // Experimental
+    let newerExercisesState: ExercisesArrayInterface[] = await []
+    // Experimental
+
     Object.values(props.exercises).map((value: any, index: number, array: any[]) => {
       return value.map((exerciseSet: ExercisesArrayInterface, index: number) => {
+        // Experimental
+        newerExercisesState.push(exerciseSet)
+        // Experimental
+
         if (newExercisesState.length < 21) {
           newExercisesState.push(exerciseSet)
         } else {
@@ -63,18 +75,23 @@ export const ExercisesTable = (props: ExercisesTableInterface) => {
     // Set exercises to show immediately
     await setExercises(newExercisesState)
 
-    // Create pagination object
-    // {pageNumber: [{exercise}, {exercise}, {exercise}, ...]}
-    for (let page = 1; page <= Math.ceil(newExercisesForPaginationState.length / 21); page++) {
-      // console.log(page, ':', )
-      for (let exercise = 1; exercise <= newExercisesForPaginationState.length; exercise++) {
-        if (exercise < page * 21) {
-          // setPagination({ page: exercise })
-        }
-      }
-    }
+    // Experimental
+    await setExercisesNewer(newerExercisesState)
+    // Experimental
   }
 
+  // const generatePaginationData = (page: number) => {
+  //   for (let i = page - 1; i <= page * 21 && i < exercisesForPagination.length; i++) {
+  //     console.log(exercisesForPagination[i])
+  //   }
+  // }
+
+  // Trigger pagination generator and watch for changes
+  // React.useEffect(() => {
+  //   generatePaginationData(1)
+  // }, [exercisesForPagination, props.exercises])
+
+  // Trigger exercises generator and watch for changes
   React.useEffect(() => {
     generateExercises()
   }, [props.exercises])
@@ -82,14 +99,33 @@ export const ExercisesTable = (props: ExercisesTableInterface) => {
   const handlePageClick = async (event: React.MouseEvent, pageNumber: number) => {
     event.preventDefault()
 
-    if (pageNumber !== activePage && pageNumber > 0 && pageNumber <= Math.ceil(exercisesForPagination.length / 21)) {
+    if (pageNumber !== activePage && pageNumber > 0) {
+      // Experimental
+      const newerExercisesState: ExercisesArrayInterface[] = await []
+      if (pageNumber === 1) {
+        for (let i = pageNumber - 1; i <= pageNumber * 21 && i < exercisesForPagination.length; i++) {
+          newerExercisesState.push(exercisesForPagination[i])
+        }
+      }
+
+      setExercisesNewer(newerExercisesState)
+      // Experimental
+
+      // Array for exercises for the new page
+      let newExercisesState: ExercisesArrayInterface[] = await []
+
+      // Fetch exercises for the new page
+      for (let i = pageNumber - 1; i <= pageNumber * 21 && i < exercisesForPagination.length; i++) {
+        newExercisesState.push(exercisesForPagination[i])
+      }
+
+      // Set exercises to show immediately
+      await setExercises(newExercisesState)
+
+      // Change active page
       await setActivePage(pageNumber)
     }
   }
-
-  React.useEffect(() => {
-    console.log('active page', activePage)
-  }, [activePage])
 
   return (
     <>
