@@ -8603,10 +8603,10 @@ react-app-polyfill@^1.0.2:
     regenerator-runtime "0.13.3"
     whatwg-fetch "3.0.0"
 
-react-bootstrap@^1.0.0-beta.11:
-  version "1.0.0-beta.11"
-  resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-1.0.0-beta.11.tgz#4570f5a1379fb05307924f7e8857fccd66c31100"
-  integrity sha512-D8rAORkNRMf0ECvB8LHCTibeo1JeWptKs4CA5/tn1x5fTu5W4DUD7fQxLm9QdbzOM0qg2FjcfTKeM9gCqhTcoA==
+react-bootstrap@^1.0.0-beta.12:
+  version "1.0.0-beta.12"
+  resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-1.0.0-beta.12.tgz#49fb83e288b1b5fa86e4c51e145630ec8b8598bb"
+  integrity sha512-qBEAthAzqM+OTS2h5ZCfV5/yZUadQcMlaep4iPyPqsu92JzdcznhSDjw6b+asiepsyQgiS33t8OPeLLRiIDh9Q==
   dependencies:
     "@babel/runtime" "^7.4.2"
     "@react-bootstrap/react-popper" "1.2.1"
@@ -9030,10 +9030,10 @@ realpath-native@^1.1.0:
   dependencies:
     util.promisify "^1.0.0"
 
-reaviz@2.7.0:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/reaviz/-/reaviz-2.7.0.tgz#71f1b5af719f36725bf2166267488a89a6ce5f26"
-  integrity sha512-4Kd01Iw1mt5GJLIEgF6SWAwz5Q9Bydrei/xCC/xT/iD/TZSl1hA/0BmC4byH2jrHIRCKAm4NnI/5AApb9MluCA==
+reaviz@2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/reaviz/-/reaviz-2.8.0.tgz#6fe2cabde7bcec96bebc9da5974f7dd2f2f0e075"
+  integrity sha512-lgOQGju26NHi1tZOO8DoGyqiouPmaRBZsaWIdsZxMr8rJLMRlDQHVrfsZ+PluPKl8As+e0A/+2mpkf9FSZc1vA==
   dependencies:
     big-integer "^1.6.44"
     calculate-size "^1.1.1"
@@ -9058,7 +9058,7 @@ reaviz@2.7.0:
     react-sizeme "^2.6.7"
     react-transition-group "^4.2.2"
     topojson-client "^3.0.0"
-    transformation-matrix "^2.1.0"
+    transformation-matrix "^2.0.3"
     world-atlas "^1.1.4"
 
 recursive-readdir@2.2.2:
@@ -10323,7 +10323,7 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
-transformation-matrix@^2.1.0:
+transformation-matrix@^2.0.3:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/transformation-matrix/-/transformation-matrix-2.1.0.tgz#6e132478a8cd484aa5a7ed50b5c36aa56a5512a2"
   integrity sha512-yVYlM73SwduIErgWKBCOr7cbQs6tovUHAtdYzhSv0ggnFR77heLJzz9Q0T6pH2Iip0xkmaBPuvagnQnSANhAWw==
