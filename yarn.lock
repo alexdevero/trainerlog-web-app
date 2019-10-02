@@ -1289,10 +1289,10 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.2.tgz#690a1475b84f2a884fd07cd797c00f5f31356ea8"
   integrity sha512-ce5d3q03Ex0sy4R14722Rmt6MT07Ua+k4FwDfdcToYJcMKNtRVQvJ6JCAPdAmAnbRb6CsX6aYb9m96NGod9uTw==
 
-"@types/react-bootstrap@^0.32.19":
-  version "0.32.19"
-  resolved "https://registry.yarnpkg.com/@types/react-bootstrap/-/react-bootstrap-0.32.19.tgz#1bdf1536cabcc4e0be5a2011e33d6766685a7e2a"
-  integrity sha512-WT108qFXs462RALsnA51e/Q5UJMtCCwIubhgv1U/YtVh2Rh18ZLALkNfAJZO9iroj7fk5RHcfMg7cZxirZp47w==
+"@types/react-bootstrap@^0.32.20":
+  version "0.32.20"
+  resolved "https://registry.yarnpkg.com/@types/react-bootstrap/-/react-bootstrap-0.32.20.tgz#8d90e625a1b2d92d169de27e40b3d20057efa1ae"
+  integrity sha512-lc7bUHGMfVkbH9B7EKPD/9AYtgtFYP5go5D3tqIUN4O0znPX1UwBY4wUeicJPONaMpYtmVUGSdbDDqK9lXUCFQ==
   dependencies:
     "@types/react" "*"
 
@@ -1303,10 +1303,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-helmet@^5.0.10":
-  version "5.0.10"
-  resolved "https://registry.yarnpkg.com/@types/react-helmet/-/react-helmet-5.0.10.tgz#f47fdda88fe750880089904fde4446612f79b63d"
-  integrity sha512-wGr0J7yncqwOS4ae+yYeMd4L3Gh43CgYcbq9bXEeSozB4d/+Z/XLT9wyMUwfWImWtOLCFLP6Xnt7w5P6+02gZg==
+"@types/react-helmet@^5.0.11":
+  version "5.0.11"
+  resolved "https://registry.yarnpkg.com/@types/react-helmet/-/react-helmet-5.0.11.tgz#d2642af4658e7b97accb46ea8b00d6dc614c99fa"
+  integrity sha512-id9DjHp/+Cm+x3etN+EWs5OP76PPpz8jXw+iN9xcXltssF0KHNjAzlan///ASXegEewaItlw5FhFnoLxRUJQ9g==
   dependencies:
     "@types/react" "*"
 
@@ -1318,10 +1318,10 @@
     "@types/prop-types" "*"
     "@types/react" "*"
 
-"@types/react-router-dom@4.3.5":
-  version "4.3.5"
-  resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-4.3.5.tgz#72f229967690c890d00f96e6b85e9ee5780db31f"
-  integrity sha512-eFajSUASYbPHg2BDM1G8Btx+YqGgvROPIg6sBhl3O4kbDdYXdFdfrgQFf/pcBuQVObjfT9AL/dd15jilR5DIEA==
+"@types/react-router-dom@5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-5.1.0.tgz#8baa84a7fa8c8e7797fb3650ca51f93038cb4caf"
+  integrity sha512-YCh8r71pL5p8qDwQf59IU13hFy/41fDQG/GeOI3y+xmD4o0w3vEPxE8uBe+dvOgMoDl0W1WUZsWH0pxc1mcZyQ==
   dependencies:
     "@types/history" "*"
     "@types/react" "*"
