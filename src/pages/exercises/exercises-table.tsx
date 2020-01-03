@@ -112,10 +112,10 @@ export const ExercisesTable = (props: ExercisesTableInterface) => {
       // Experimental
 
       // Array for exercises for the new page
-      let newExercisesState: ExercisesArrayInterface[] = await []
+      const newExercisesState: ExercisesArrayInterface[] = await []
 
       // Fetch exercises for the new page
-      for (let i = pageNumber - 1; i <= pageNumber * 21 && i < exercisesForPagination.length; i++) {
+      for (let i = (pageNumber - 1) * 21; i <= pageNumber * 21 && i < exercisesForPagination.length; i++) {
         newExercisesState.push(exercisesForPagination[i])
       }
 

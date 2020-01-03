@@ -35,6 +35,28 @@ const PaginationWrapper = styled.div`
 // `
 
 export const ExercisesPagination = (props: ExercisesPaginationInterface) => {
+  const generatePages = () => {
+    const pages: any[] = []
+
+    for (let i = 1; i <= (props.exercisesForPagination.length / 21); i++) {
+      for (let j = 0; j < (i / 21); j++) {
+        console.log(i)
+        pages.push(props.exercisesForPagination[j])
+      }
+      // pages.push(props.exercisesForPagination)
+    }
+
+    console.log(pages)
+
+    // props.exercisesForPagination.map((page, index: number) => {
+    //   if (index % 21 === 0) {
+    //     pages.push(<Pagination.Item active={props.activePage === index} onClick={(event: React.MouseEvent) => props.handlePageClick(event, index)}>{index}</Pagination.Item>)
+    //   }
+    // })
+
+    // return pages
+  }
+
   return (
     <PaginationWrapper>
       <Pagination>
@@ -52,7 +74,10 @@ export const ExercisesPagination = (props: ExercisesPaginationInterface) => {
         {/* Create pagination for third and other pages */}
         {(Math.ceil(props.exercisesForPagination.length / 21)) >= 3 && (
           <>
-            <Pagination.Ellipsis />
+            {/* <Pagination.Ellipsis /> */}
+
+            {generatePages()}
+
             {/* <Pagination.Item><PaginationInput /></Pagination.Item> */}
             <Pagination.Item active={props.activePage === Math.ceil(props.exercisesForPagination.length / 21)} onClick={(event: React.MouseEvent) => props.handlePageClick(event, Math.ceil(props.exercisesForPagination.length / 21))}>
               {(Math.ceil(props.exercisesForPagination.length / 21))}
