@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import { ReactSVG } from 'react-svg'
 import { toast } from 'react-toastify'
 
 import { Button } from './../../components/button'
@@ -9,8 +10,6 @@ import { HeadingH6 } from './../../components/typography'
 
 
 import { setCurrentSessionData } from './../../utils/local-storage'
-
-import { ReactComponent as Logo } from './../../images/trainerlog-logo-new.svg'
 
 interface SignInCardInterface {
   forgotPassword: () => void;
@@ -125,11 +124,11 @@ export const SignInCard = (props: SignInCardInterface) => {
 
   return (
     <SignInCardWrapper>
-      <Logo
-        style={{
-          display: 'block',
-          margin: '12px auto 22px',
-          width: 80
+      <ReactSVG
+        src={require('./../../images/trainerlog-logo-new.svg')}
+        beforeInjection={svg => {
+          svg.classList.add('header__logo')
+          svg.setAttribute('style', 'display: block; margin: 12px auto 22px; width: 80px;')
         }}
       />
 

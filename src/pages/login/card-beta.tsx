@@ -1,14 +1,13 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
+import { ReactSVG } from 'react-svg'
 import { toast } from 'react-toastify'
 
 import { Button } from './../../components/button'
 import { colors, defaultStyles, View } from './../../components/constants'
 import { ErrorMessage, Fieldset, Input, Label } from './../../components/form-elements'
 import { HeadingH6 } from './../../components/typography'
-
-import { ReactComponent as Logo } from './../../images/trainerlog-logo-new.svg'
 
 interface BetaCardInterface {
   alreadyHaveAccount: () => void;
@@ -107,11 +106,11 @@ export const BetaCard = (props: BetaCardInterface) => {
 
   return (
     <BetaCardWrapper>
-      <Logo
-        style={{
-          display: 'block',
-          margin: '12px auto 22px',
-          width: 80
+      <ReactSVG
+        src={require('./../../images/trainerlog-logo-new.svg')}
+        beforeInjection={svg => {
+          svg.classList.add('header__logo')
+          svg.setAttribute('style', 'display: block; margin: 12px auto 22px; width: 80px;')
         }}
       />
 

@@ -1,10 +1,9 @@
 import * as React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled, { css, createGlobalStyle } from 'styled-components'
+import { ReactSVG } from 'react-svg'
 
 import { breakpoints } from './../components/constants'
-
-import { ReactComponent as Logo } from './../images/trainerlog-logo-new.svg'
 
 interface SidebarInterface {
   handleSidebarToggle: () => void;
@@ -193,10 +192,11 @@ const Sidebar = (props: SidebarInterface) => {
       <SidebarWrapper isSidebarVisible={props.isSidebarVisible}>
         <nav>
           <SidebarLogo>
-            <Logo
-              style={{
-                display: 'block',
-                width: 20
+            <ReactSVG
+              src={require('./../images/trainerlog-logo-new.svg')}
+              beforeInjection={svg => {
+                svg.classList.add('header__logo')
+                svg.setAttribute('style', 'display: block; width: 20px;')
               }}
             />
             {' '}

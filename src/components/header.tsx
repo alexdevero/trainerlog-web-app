@@ -1,10 +1,9 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
+import { ReactSVG } from 'react-svg'
 
 import { breakpoints, colors, defaultStyles } from './constants'
-
-import { ReactComponent as Logo } from './../images/trainerlog-logo-new.svg'
 
 interface HeaderInterface {
   isSidebarVisible: boolean;
@@ -102,13 +101,13 @@ const Header = (props: HeaderInterface) => {
     <HeaderEl>
       <HeaderNav>
         <HeaderLogo to="/">
-          <Logo
-            style={{
-              display: 'block',
-              width: 26
+          <ReactSVG
+            src={require('./../images/trainerlog-logo-new.svg')}
+            beforeInjection={svg => {
+              svg.classList.add('header__logo')
+              svg.setAttribute('style', 'display: block; width: 26px;')
             }}
           />
-          {' '}
           TL
         </HeaderLogo>
 
