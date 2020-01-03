@@ -27,7 +27,6 @@ import Sidebar from './components/sidebar'
 import { getCurrentSessionData, removeCurrentSessionData } from './utils/local-storage'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import 'reaviz/dist/index.css'
 import 'react-toastify/dist/ReactToastify.css'
 
 const GlobalStyles = createGlobalStyle`
